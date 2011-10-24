@@ -13,16 +13,16 @@
     <body>
         <header role="banner">
             <hgroup>
-                <h1 class="logo" title="Hannover.js"><img src="images/logo.png" alt="Hannover.js Logo"/></h1>
+                <h1 class="logo" title="Hannover.js"><img src="images/logo.png" alt="Hannover.js Logo" width="300"/></h1>
                 <h2 class="tagline">Hannover's monthly JavaScript Meetup</h2>
             </hgroup>
             <nav>
                 <ul>
-                    <li><a href="/#home">Home</a></li>
-                    <li><a href="/#schedule">Schedule</a></li>
-                    <li><a href="/#about">About</a></li>
-                    <li><a href="/#speaker">Speaker</a></li>
-                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#speaker">Speaker</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </header>
@@ -59,17 +59,61 @@
             </section>
             <nav>
                 <ul>
-                    <li><a href="/#home">Home</a></li>
-                    <li><a href="/#schedule">Schedule</a></li>
-                    <li><a href="/#about">About</a></li>
-                    <li><a href="/#speaker">Speaker</a></li>
-                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#speaker">Speaker</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </footer>
-        <script src="js/backbone.js"></script>
-        <script>
 
+        <script type="text/template" id="home_template">
+            <article>
+                <header>
+                    <h3 class="tagline">
+                        Hannover.js is a usergroup focused on JavaScript and related
+                        stuff. The idea has gained great interest around lower saxonys JavaScript folks. 
+                        We meet regularly on the 4th thursday each moneth at 7pm. at Dr. Buhmann Schule,
+                        Prinzenstraße 13, 30159 in Hannover.
+                    </h3>
+                </header>
+                <section class="upcoming-event">
+                    <header>
+                        <h1>Next meetup on October 27th</h1>
+                    </header>
+                    <article class="talks">
+                        <header>
+                            <h1>Announced talks</h1>
+                        </header>
+                        
+                        <div class="talk">
+
+                        </div>
+                    </article>
+                </section>
+            </article>
         </script>
+
+        <script type="text/template" id="about_template">
+            <h1>About</h1>
+        </script>
+
+        <script type="text/template" id="schedule_template">
+            <h1>Schedule</h1>
+        </script>
+
+        <script type="text/template" id="speaker_template">
+            <h1>Speaker</h1>
+        </script>
+
+        <script type="text/template" id="contact_template">
+            <h1>Contact</h1>
+        </script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script src="js/underscore.js"></script>
+        <script src="js/backbone.js"></script>
+        <script src="js/hannoverjs-app.js"></script>
     </body>
 </html>
