@@ -1,4 +1,4 @@
 # Hannover.js Website
-
+## This site is under heavy construction!
 * Website: <a href="http://www.hannoverjs.de/">www.hannoverjs.de</a>
 * Twitter: <a href="http://www.twitter.com/#!/hannoverjs/">@hannoverjs</a>
