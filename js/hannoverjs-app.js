@@ -10,6 +10,9 @@ var App = {};
             "*actions": "handleAction"
         },
         handleAction: function (action) {
+            if (action === "") {
+                action = 'home';
+            }
             __app.templateName = action + "_template";
             var view = new __app.dynamicView({
                 el: $("section.content")

@@ -8,18 +8,17 @@
         on the 4th thursday each moneth at 7pm. at Dr. Buhmann Schule, Prinzenstraße 13, 30159 in Hannover.">
         <meta name="keywords" content="JavaScript, Meetup, Usergroup, Hannover, Development">
         <meta name="author" content="Hannover.js">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
         <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     </head>
     <body>
+        <header role="banner">
+            <div class="inner-wrap"></div>
+            <div id="top-bar"></div>
+        </header>
         <div id="wrap">
-            <header role="banner">
-                <hgroup>
-                    <h1 class="logo" title="Hannover.js"><img src="images/logo.png" alt="Hannover.js Logo" width="300"/></h1>
-                    <h2 class="tagline">Hannover's monthly JavaScript Meetup</h2>
-                </hgroup>
-                <nav>
+                <!--<nav>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#schedule">Schedule</a></li>
@@ -27,9 +26,7 @@
                         <li><a href="#speaker">Speaker</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
-                </nav>
-            </header>
-
+                    </nav> -->
             <section class="content"></section>
 
             <footer>
@@ -38,8 +35,8 @@
                         <h1>Get in touch</h1>
                      </header>
                     <ul>
-                        <li>Hannover.js on <a href="http://www.twitter.com/#!/hannoverjs/">Twitter</a></li>
-                        <li>Hannover.js on <a href="http://www.facebook.com/hannoverjs">Facebook</a></li>
+                        <li><span>Hannover.js on <a href="http://www.twitter.com/#!/hannoverjs/">Twitter</a></span></li>
+                        <li><span>Hannover.js on <a href="http://www.facebook.com/hannoverjs">Facebook</a></span></l>
                     </ul>
                 </section>
                 <section class="the-team">
@@ -47,7 +44,8 @@
                         <h1>The Team</h1>
                     </header>
                     <ul>
-                        <li><a href="http://www.twitter.com/#!/cburgdorf/">Christoph Burgdorf</a> (Founder)</li>
+                        <li>
+                            <a href="http://www.twitter.com/#!/cburgdorf/">Christoph Burgdorf</a> <span class="founder">(Founder)</span></li>
                         <li><a href="http://www.twitter.com/#!/designaholic/">Johannes Tröger</a></li>
                         <li><a href="http://www.twitter.com/#!/PascalPrecht/">Pascal Precht</a></li>
                     </ul>
@@ -59,9 +57,8 @@
                     <ul>
                         <li><a href="http://www.buhmann.de/">Dr. Buhmann Schule</a></li>
                     </ul>
-                    </section>
-                    <div class="clear"></div>
-                <nav>
+                </section>
+                <!--<nav>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#schedule">Schedule</a></li>
@@ -69,26 +66,16 @@
                         <li><a href="#speaker">Speaker</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
-                </nav>
+                    </nav> -->
             </footer>
-
         </div>
 
         <script type="text/template" id="home_template">
-            <header>
-                <h3>
-                    Hannover.js is a usergroup focused on JavaScript and related
-                    stuff. The idea has gained great interest around lower saxonys JavaScript folks. 
-                    We meet regularly on the 4th thursday each moneth at 7pm. at Dr. Buhmann Schule,
-                    Prinzenstraße 13, 30159 in Hannover.
-                </h3>
-            </header>
-            <section class="upcoming-event">
-                <header>
-                    <h1>Next meetup on October 27th</h1>
-                </header>
-
-                <article class="talks">
+            <section class="circle">
+                <h1>Next meetup on October 27th</h1>
+            </section>
+            <article>
+                <section class="talks">
                     <header>
                         <h1>Announced talks</h1>
                     </header>
@@ -111,8 +98,26 @@
                         </div>
                     </div>
 
+                    <div class="talk">
+                        <h3>Bacon Ipsum</h3>
+
+                        <p>Hamburger pig ball tip, tri-tip pork loin tongue biltong rump shank.
+                        Frankfurter beef andouille capicola, chicken turkey swine. Bresaola strip 
+                        steak corned beef ground round brisket, pig flank sirloin jowl pancetta
+                        spare ribs swine kielbasa short loin. Drumstick jerky ball tip shankle 
+                        ham hock. Beef boudin venison, bresaola sirloin meatloaf tenderloin 
+                        frankfurter andouille short ribs hamburger pork chop.</p>
+
+                        <div class="speaker">
+                            <div class="avatar">
+                                <img src="https://secure.gravatar.com/avatar/1bb69b75c5e73a7c9f4ebbc4835d622f?s=100&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png"/>
+                            </div>
+                            <span><a href="http://www.twitter.com/#!/cburgdorf/">Christoph Burgdorf</a></span>
+                        </div>
+                    </div>
+                    </section>
                 </article>
-            </section>
+                </section>
         </script>
 
         <script type="text/template" id="about_template">
