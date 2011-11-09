@@ -13,12 +13,10 @@
         <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     </head>
     <body>
-        <header role="banner">
-            <div class="inner-wrap"></div>
-            <div id="top-bar"></div>
-        </header>
         <div id="wrap">
-                <!--<nav>
+            <header>
+                <img src="images/hannoverjs-logo-3.png" />
+                <nav>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#schedule">Schedule</a></li>
@@ -26,8 +24,17 @@
                         <li><a href="#speaker">Speaker</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
-                    </nav> -->
-            <section class="content"></section>
+                    </nav>
+                <div class="social-bookmarks">
+                    <img src="images/icons/social-bookmarks/24 x 24/facebook.png"/>
+                    <img src="images/icons/social-bookmarks/24 x 24/twitter.png"/>
+                    <img src="images/icons/social-bookmarks/24 x 24/flickr.png"/>
+                </div>
+            </header>
+
+            <section class="content">
+            
+            </section>
 
             <footer>
                 <section class="get-in-touch">
@@ -58,27 +65,18 @@
                         <li><a href="http://www.buhmann.de/">Dr. Buhmann Schule</a></li>
                     </ul>
                 </section>
-                <!--<nav>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#schedule">Schedule</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#speaker">Speaker</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                    </nav> -->
+                <p class="copyright">Copyright &copy; Hannover.js - Hannover's monthly JavaScript Meetup 2011 </p>
             </footer>
         </div>
 
         <script type="text/template" id="home_template">
-            <section class="circle">
-                <h1>Next meetup on October 27th</h1>
-            </section>
             <article>
+                <header>
+                    <h1>Welcome!</h1>
+                </header>
+            </article>
+            <!-- <article>
                 <section class="talks">
-                    <header>
-                        <h1>Announced talks</h1>
-                    </header>
                     
                     <div class="talk">
                         <h3>Making your JavaScript faster</h3>
@@ -116,23 +114,39 @@
                         </div>
                     </div>
                     </section>
-                </article>
+                    </article> -->
         </script>
 
         <script type="text/template" id="about_template">
-            <h1>About</h1>
+            <article>
+                <header>
+                <h1>About</h1>
+                </header>
+            </article>
         </script>
 
         <script type="text/template" id="schedule_template">
-            <h1>Schedule</h1>
+            <article>
+                <header>
+                <h1>Schedule</h1>
+                </header>
+            </article>
         </script>
 
         <script type="text/template" id="speaker_template">
-            <h1>Speaker</h1>
+            <article>
+                <header>
+                <h1>Speaker</h1>
+                </header>
+            </article>
         </script>
 
         <script type="text/template" id="contact_template">
-            <h1>Contact</h1>
+            <article>
+                <header>
+                <h1>Contact</h1>
+                </header>
+            </article>
         </script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>

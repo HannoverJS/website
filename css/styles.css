@@ -1,122 +1,130 @@
 body {
-    background-color: #8D5050;
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(252,227,208,.5) 35px, rgba(252,227,208,.5) 70px);
-    background-image: -webkit-repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(252,227,208,.5) 35px, rgba(252,227,208,.5) 70px);
-    font-family: 'Ubuntu Condensed', sans-serif;
+    font-family: Verdana;
 }
 
-h1, h2, h3, h4, h5 , h6 {
+a {
+    text-decoration: none;
+    color: #323230;
+    font-weight: bold;
+}
+
+ul {
+    padding: 0;
     margin: 0;
 }
 
-body > header {
-    width: 100%;
-}
-
-body > header .inner-wrap {
-    margin: 0 auto;
-    width: 960px;
-    height: 160px;
-    background-color: #EEDFC0;
-}
-
-#top-bar {
-    height: 60px;
-    background-color: #ADCCCD;
-    border-bottom: 2px solid  #A0A0A0;
-    border-top: 2px solid #A0A0A0;
+ul li {
+    list-style-type: none;
 }
 
 #wrap {
-    margin: 0 auto;
-    width: 960px;
-    background: #7d5033;
-    height: 100%;
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+#wrap > header {
+    width: 150px;
+    float: left;
+}
+
+#wrap > header img {
+    width: 150px;
+    height: 150px;
+}
+
+#wrap > header nav {
+    margin-top: 10px;
+}
+
+header nav ul li {
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+header nav ul li a {
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+header nav ul li a:hover {
+    /*background-color: #F0DB4F;*/
+    background-color: #CCC;
+}
+
+#wrap > header .social-bookmarks {
+    margin-top: 15px;
+    text-align: right;
+}
+
+#wrap > header .social-bookmarks img {
+    height: 24px;
+    width: 24px;
 }
 
 section.content {
-    background: #EEDFC0;
-    padding: 20px;
-}
-
-h3.introduction {
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-section.content article {
-    background-color: #F0F0F0;
-    border: 2px #C0C0C0 solid;
-}
-
-section.circle {
-    color: #FFF;
-    display: block;
-    background-color: #c73434;
-    border-radius: 100px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    height: 100px;
-    width: 200px;
-    text-shadow: 2px 2px 0px #333;
-    padding-top: 100px;
-}
-
-.avatar img {
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-}
-
-footer {
-    background-color: #7d5033 ;
-    border-top: 2px solid #5c3b26;
-    color: #FFF;
-    padding-top: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-footer section {
+    width: 750px;
     float: left;
-    width: 300px;
+    margin-bottom: 40px;
+    margin-left: 50px;
 }
 
-footer section h1 {
-    text-shadow: 3px 2px #333/*#5c3b26*/;
-    border-bottom: #5c3b26 solid 1px;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding-bottom: 5px;
-}
 
-footer section ul {
-    padding: 0;
+section.content article header {
     margin: 0;
-    margin-top: 20px;
+    padding: 0;
+    height: 150px;
+    border-bottom: dotted #323230 1px;
+    text-align: left;
 }
 
-footer section ul li {
-    color: #333;
-    margin-left: 30px;
+section.content article h1 {
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 120px;
+    color: #323230;
+    font-weight: normal;
 }
 
-footer section ul li span {
-    color: #F0F0F0;
+#wrap > footer {
+    clear: both;
+    width: 750px;
+    margin-left: 200px;
+    border-top: dotted #323230 1px;
+    padding-top: 18px;
 }
 
-footer section ul li span.founder {
-    color: #ADCCCD;
+#wrap > footer section {
+    width: 250px;
+    float: left;
+    height: 200px;
 }
 
-footer section ul li a {
-    color: #FFF;
-    text-decoration: none;
+#wrap > footer section header h1 {
+    font-size: 18px;
+    color: #323230;
+    text-transform: uppercase;
+    padding-top: 10px;
 }
 
-footer section ul li a:hover {
-    border-bottom: solid 2px #c73434;
+#wrap > footer section li {
+    margin-left: 5px;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+#wrap > footer section li a {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+#wrap > footer section li a:hover {
+    background-color: #F0DB4F;
+}
+
+#wrap > footer p {
+    clear: both;
+    font-size: 13px;
+    text-align: center;
+    color: #666;
 }
