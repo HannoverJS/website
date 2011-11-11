@@ -19,16 +19,16 @@
                 <nav>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#schedule">Schedule</a></li>
+                        <li><a href="#talks">Talks</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#speaker">Speaker</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                     </nav>
                 <div class="social-bookmarks">
-                    <img src="images/icons/social-bookmarks/24 x 24/facebook.png"/>
-                    <img src="images/icons/social-bookmarks/24 x 24/twitter.png"/>
-                    <img src="images/icons/social-bookmarks/24 x 24/flickr.png"/>
+                    <a href="http://facebook.com/hannoverjs"><img src="images/icons/social-bookmarks/24 x 24/facebook.png"/></a>
+                    <a href="http://twitter.com/#!/hannoverjs"><img src="images/icons/social-bookmarks/24 x 24/twitter.png"/></a>
+                    <a href="http://www.flickr.com/photos/hannoverjs"><img src="images/icons/social-bookmarks/24 x 24/flickr.png"/></a>
                 </div>
             </header>
 
@@ -37,18 +37,19 @@
             </section>
 
             <footer>
-                <section class="get-in-touch">
+                <section class="socialize">
                     <header>
-                        <h1>Get in touch</h1>
+                        <h1>Sozialize</h1>
                      </header>
                     <ul>
                         <li><span>Hannover.js on <a href="http://www.twitter.com/#!/hannoverjs/">Twitter</a></span></li>
                         <li><span>Hannover.js on <a href="http://www.facebook.com/hannoverjs">Facebook</a></span></li>
+                        <li><span>Hannover.js on <a href="http://www.flickr.com/photos/hannoverjs">Flickr</a></span></li>
                     </ul>
                 </section>
-                <section class="the-team">
+                <section class="get-in-touch">
                     <header>
-                        <h1>The Team</h1>
+                        <h1>Get in touch</h1>
                     </header>
                     <ul>
                         <li>
@@ -74,47 +75,35 @@
                 <header>
                     <h1>Welcome!</h1>
                 </header>
+                <section class="introduction">
+                    <header>
+                        <h2>Hannover's monthly JavaScript Meetup</h2>
+                    </header>
+                    <p>Hannover.js is a usergroup focused on JavaScript and related
+                    stuff. The idea has gained great interest around lower saxonys JavaScript folks. We meet regularly
+                    on the 4th thursday each moneth at 7pm. at Dr. Buhmann Schule, Prinzenstraße 13, 30159 in Hannover.</p>
+
+                    <p>You can keep up to date by following <a href="http://twitter.com/#!/hannoverjs">Hannover.js' tweets</a>, 
+                    sending us a mail, or visting our <a href="http://facebook.com/hannoverjs">Facebook Page</a>.</p>
+
+                    <p>For more impressions click one of those images and get the full love of the JavaScript-Community 
+                    of Hannover on <a href="http://www.flickr.com/photos/hannoverjs">Flickr!</a></p>
+
+                    <aside>
+                        <div class="promote-image one">
+                            <a href="http://www.flickr.com/photos/hannoverjs"><img src="images/promote_1.jpg" /></a>
+                        </div>
+
+                        <div class="promote-image two">
+                            <a href="http://www.flickr.com/photos/hannoverjs"><img src="images/promote_2.jpg" /></a>
+                        </div>
+
+                        <div class="promote-image">
+                            <a href="http://www.flickr.com/photos/hannoverjs"><img src="images/promote_3.jpg" /></a>
+                        </div>
+                    </aside>
+                </section>
             </article>
-            <!-- <article>
-                <section class="talks">
-                    
-                    <div class="talk">
-                        <h3>Making your JavaScript faster</h3>
-
-                        <p>Hamburger pig ball tip, tri-tip pork loin tongue biltong rump shank.
-                        Frankfurter beef andouille capicola, chicken turkey swine. Bresaola strip 
-                        steak corned beef ground round brisket, pig flank sirloin jowl pancetta
-                        spare ribs swine kielbasa short loin. Drumstick jerky ball tip shankle 
-                        ham hock. Beef boudin venison, bresaola sirloin meatloaf tenderloin 
-                        frankfurter andouille short ribs hamburger pork chop.</p>
-
-                        <div class="speaker">
-                            <div class="avatar">
-                                <img src="http://www.gravatar.com/avatar/447b70556cb99e6dfcfea71942a3e68e?s=100"/>
-                            </div>
-                            <span><a href="http://www.twitter.com/#!/PascalPrecht/">Pascal Precht</a></span>
-                        </div>
-                    </div>
-
-                    <div class="talk">
-                        <h3>Bacon Ipsum</h3>
-
-                        <p>Hamburger pig ball tip, tri-tip pork loin tongue biltong rump shank.
-                        Frankfurter beef andouille capicola, chicken turkey swine. Bresaola strip 
-                        steak corned beef ground round brisket, pig flank sirloin jowl pancetta
-                        spare ribs swine kielbasa short loin. Drumstick jerky ball tip shankle 
-                        ham hock. Beef boudin venison, bresaola sirloin meatloaf tenderloin 
-                        frankfurter andouille short ribs hamburger pork chop.</p>
-
-                        <div class="speaker">
-                            <div class="avatar">
-                                <img src="https://secure.gravatar.com/avatar/1bb69b75c5e73a7c9f4ebbc4835d622f?s=100&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png"/>
-                            </div>
-                            <span><a href="http://www.twitter.com/#!/cburgdorf/">Christoph Burgdorf</a></span>
-                        </div>
-                    </div>
-                    </section>
-                    </article> -->
         </script>
 
         <script type="text/template" id="about_template">
@@ -122,14 +111,47 @@
                 <header>
                 <h1>About</h1>
                 </header>
+                <section>
+                    <header>
+                    <h2>What it is all about</h2>
+                    </header>
+                <p>As There're many JavaScript usergroups out there, like <a href="http://colognejs.de/">Cologne.js</a>, <a href="http://berlinjs.org">Berlin.js</a>, <a href="http://www.munichjs.org/">Munich.js</a> and 
+                <a href="http://www.meetup.com/hamburg-js/">Hamburg.js</a>, <a href="http://twitter.com/#!/cburgdorf">Christoph Burgdorf</a> decided to bring
+                another JavaScript usergroup to life in Hannover. So here it is!<p>
+
+                <p>Hannover.js is a usergroup focused on JavaScript and related
+                stuff. The idea has gained great interest around lower saxonys JavaScript folks. We meet regularly
+                on the 4th thursday each moneth at 7pm. at Dr. Buhmann Schule, Prinzenstraße 13, 30159 in Hannover.</p>
+
+                <p>You can keep up to date by following <a href="http://twitter.com/#!/hannoverjs">Hannover.js' tweets</a>, 
+                sending us a mail, or visting our <a href="http://facebook.com/hannoverjs">Facebook Page</a>.</p>
+                </section>
             </article>
         </script>
 
-        <script type="text/template" id="schedule_template">
+        <script type="text/template" id="talks_template">
             <article>
                 <header>
-                <h1>Schedule</h1>
+                <h1>Talks</h1>
                 </header>
+                <section>
+                    <header>
+                    <h2>Next meeup: 24th November!</h2>
+                    </header>
+                    <p>Don't miss! Here is a list of all announced talks for the very next <a href="http://hannoverjs.de/">Hannover.js</a> Meetup. No topic you like? Feel free to contribute and add yourself to the list! You can also let us no, if there is a topic you really would like to listen in a talk someday on Hannover.js.</p>
+                <div class="speaker">
+                    <div class="avatar">
+                        <a href="http://twitter.com/#!/cburgdorf"><img src="http://gravatar.com/avatar/1bb69b75c5e73a7c9f4ebbc4835d622f?s=130" align="left"/></a>
+                    </div>
+                    <h3>Christoph Burgdorf - <span>Building apps with angularJS</span></h3>
+                    <p>Christoph works as a fulltime developer for <a href="http://www.dff-solutions.de/">dff-solutions</a>. His team and he are working on the future of logistics productivity.</p>
+ 
+                    <p>Also he has a strong C# background, his passion does not stop there. In recent years, Christoph has developed a strong affinity for JavaScript. In his spare time he also likes to hack on FOSS projects. His contributions have been made in a variety of projects: <a href="http://banshee.fm">banshee</a>, <a href="jqueryui.com">jquery-ui</a>, <a href="http://live.gnome.org/Tasque">tasque</a>, <a href="http://www.trirand">jqGrid</a> to name a few.</p>
+ 
+                    <p>He is also the founder of the Hannover.js event. If you like to hire him for freelance work a short twitter call usually works best!</p>
+                </div>
+                <h3 align="center">More to come..</h3>
+                </section>
             </article>
         </script>
 
@@ -138,6 +160,39 @@
                 <header>
                 <h1>Speaker</h1>
                 </header>
+
+                <div class="speaker">
+                    <div class="avatar">
+                        <a href="http://twitter.com/#!/cburgdorf"><img src="http://gravatar.com/avatar/1bb69b75c5e73a7c9f4ebbc4835d622f?s=150" align="left"/></a>
+                    </div>
+                    <h3>Christoph Burgdorf <span>(Founder)</span></h3>
+                    <p>Christoph works as a fulltime developer for <a href="http://www.dff-solutions.de/">dff-solutions</a>. His team and he are working on the future of logistics productivity.</p>
+ 
+                    <p>Also he has a strong C# background, his passion does not stop there. In recent years, Christoph has developed a strong affinity for JavaScript. In his spare time he also likes to hack on FOSS projects. His contributions have been made in a variety of projects: <a href="http://banshee.fm">banshee</a>, <a href="jqueryui.com">jquery-ui</a>, <a href="http://live.gnome.org/Tasque">tasque</a>, <a href="http://www.trirand">jqGrid</a> to name a few.</p>
+ 
+                    <p>He is also the founder of the Hannover.js event. If you like to hire him for freelance work a short twitter call usually works best!</p>
+                </div>
+
+                <div class="speaker">
+                    <div class="avatar">
+                        <a href="http://twitter.com/#!/PascalPrecht"><img src="http://www.gravatar.com/avatar/447b70556cb99e6dfcfea71942a3e68e?s=150" align="left"/></a>
+                    </div>
+                    <h3>Pascal Precht</h3>
+                    <p>Pascal is currently completing an apprenticeship as IT specialist for application development and works as a Web Application Developer at <a href="http://flyerheaven.de">flyerheaven.de</a>. As a flyerheavy he works mainly on PHP based web applications and implemented shop systems with a strong development team.In his spare time he works on open source projects such as CakePHP to expand his knowledge.</p>
+
+                    <p>Pascal also speaks at developer conferences such as <a href="http://hannoverjs.de">Hannover.js</a> and gives workshops at <a href="http://justaddicted.com">Just.Addiced workshops</a>. If he doesn't meet code enthusiasts and the weather is on his side, he takes his skateboard to get rid of any code in his head. You can get in touch with him by <a href="http://xing.com/profile/Pascal_Precht">Xing</a>, <a href="http://twitter.com/#!/PascalPrecht">Twitter</a>, <a
+                        href="http://www.facebook.com/PascalPrecht">Facebook</a> and occur naturally in contact via <a href="mailto:pascal.precht@googlemail.com">email</a>.</p>
+                </div>
+
+                <div class="speaker">
+                    <div class="avatar">
+                        <a href="http://twitter.com/#!/PascalPrecht"><img src="http://gravatar.com/avatar/394f45426e824265253b9fb39a83a7d1?s=150" align="left"/></a>
+                    </div>
+                    <h3>Johannes Tröger</h3>
+                    <p>Swine pork chop shankle t-bone tongue. Ham hamburger pork chop short ribs, turducken boudin bacon ham hock cow t-bone leberkäse beef. Pig andouille spare ribs chicken cow, beef ribs tail frankfurter tenderloin ground round short loin. Chuck jerky shoulder, spare ribs pork loin pig bresaola ham drumstick pork hamburger shankle jowl fatback. Strip steak tenderloin ham, chuck prosciutto flank tail meatloaf pork chop spare ribs hamburger pig pancetta capicola ground round.
+                    Shank meatloaf beef, sirloin jerky chuck ground round short ribs meatball shankle tail hamburger beef ribs. Pastrami turducken pancetta tri-tip, ground round chuck biltong capicola pork belly chicken strip steak t-bone beef meatloaf turkey.</p>
+                </div>
+
             </article>
         </script>
 
@@ -146,13 +201,23 @@
                 <header>
                 <h1>Contact</h1>
                 </header>
+                <section>
+                <h2>We are waiting for you!</h2>
+                <p>There are many different ways to get in touch with <a href="http://hannoerjs.de">Hannover.js</a>. Take a look at the list below and decide, how you would like to get in contact with us. We're looking forward see you at the very next Hannover.js meetup!</p>
+                <ul>
+                    <li>Twitter: <a href="http://twitter.com/#!/hannoverjs">@hannoverjs</a></li>
+                    <li>Facebook: <a href="http://facebook.com/hannoverjs">www.facebook.com/hannoverjs</a></li>
+                    <li>Website: <a href="http://hannoverjs.de">www.hannoverjs.de</a></li>
+                    <li>Email: <a href="mailto:christoph.burgdorf@bvsn.org">Christoph Burgdorf</a></li>
+                </ul>
+                </section>
             </article>
         </script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script src="js/jquery.js"></script>
         <script src="js/underscore.js"></script>
         <script src="js/backbone.js"></script>
         <script src="js/hannoverjs-app.js"></script>
-
     </body>
 </html>

@@ -2,6 +2,10 @@ body {
     font-family: Verdana;
 }
 
+h1, h2 {
+    color: #323230;
+}
+
 a {
     text-decoration: none;
     color: #323230;
@@ -15,6 +19,10 @@ ul {
 
 ul li {
     list-style-type: none;
+}
+
+p {
+    font-size: 14px;
 }
 
 #wrap {
@@ -69,6 +77,43 @@ section.content {
     margin-left: 50px;
 }
 
+section.content article aside {
+    margin-top: 50px;
+}
+
+section.content article div.promote-image {
+    float: left;
+}
+
+section.content article div.promote-image img {
+	opacity: 0.8;
+ 
+	/*Transition*/
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+ 
+	/*Reflection*/
+	-webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.7, transparent), to(rgba(0,0,0,0.1)));
+}
+ 
+ 
+section.content article div.promote-image img:hover {  
+   opacity: 1;
+ 
+   /*Glow*/
+  -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+  -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+  box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+}
+
+section.content article div.one {
+    margin-right: 15px;
+}
+
+section.content article div.two {
+    margin-right: 15px;
+}
 
 section.content article header {
     margin: 0;
@@ -86,6 +131,81 @@ section.content article h1 {
     font-weight: normal;
 }
 
+section.content article section header {
+    border: none;
+    height: 30px;
+    margin-bottom: 0px;
+}
+
+section.content article section header h2 {
+    padding-top: 5px;
+}
+
+section.content article section p a {
+    font-weight: normal;
+    text-decoration: underline;
+    color: #000;
+}
+
+section.content article div.speaker {
+    margin-top: 50px;
+
+	-webkit-box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+	-moz-box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+	box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+    padding: 10px;
+}
+
+section.content article div.speaker h3 {
+    margin-left: 180px;
+    color: #323230;
+}
+
+section.content article div.speaker h3 span {
+    color: #666;
+}
+
+section.content article div.speaker p {
+    margin-left: 180px;
+}
+
+section.content article div.speaker p a {
+    font-weight: normal;
+    text-decoration: underline;
+    color: #000;
+}
+
+section.content article div.speaker div.avatar img {
+	border: 5px solid #eee;
+	-webkit-box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+	-moz-box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+	box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+	-webkit-transition: all 0.5s ease-out;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+}
+ 
+section.content article div.speaker div.avatar img:hover {
+	-webkit-transform: rotate(-7deg);
+	-moz-transform: rotate(-7deg);
+	-o-transform: rotate(-7deg);
+}
+
+section.content article section ul {
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+section.content article section ul li {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+section.content article section ul a {
+    font-weight: normal;
+    text-decoration: underline;
+    color: #000;
+}
 #wrap > footer {
     clear: both;
     width: 750px;
