@@ -2,7 +2,7 @@ body {
     font-family: Verdana;
 }
 
-h1, h2 {
+h1, h2, h3 {
     color: #323230;
 }
 
@@ -36,7 +36,7 @@ p {
     float: left;
 }
 
-#wrap > header img {
+#wrap > header img.logo {
     width: 150px;
     height: 150px;
 }
@@ -63,6 +63,7 @@ header nav ul li a:hover {
 #wrap > header .social-bookmarks {
     margin-top: 15px;
     text-align: right;
+    margin-bottom: 15px;
 }
 
 #wrap > header .social-bookmarks img {
