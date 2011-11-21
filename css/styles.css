@@ -71,6 +71,23 @@ header nav ul li a:hover {
     width: 24px;
 }
 
+div.jsdocs {
+    margin-bottom: 15px;
+    height: 175px;
+}
+
+#wrap > header div.sponsors {
+   height: 191px;
+   margin-bottom: 15px;
+}
+#wrap > header div.sponsors h3 {
+   border-bottom: solid #CCC 1px;
+   text-align: right;
+   font-weight: normal;
+   text-transform: uppercase;
+   padding-bottom: 3px;
+}
+
 section.content {
     width: 750px;
     float: left;
@@ -84,6 +101,7 @@ section.content article aside {
 
 section.content article div.promote-image {
     float: left;
+    margin-bottom: 15px;
 }
 
 section.content article div.promote-image img {
