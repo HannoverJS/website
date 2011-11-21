@@ -170,6 +170,22 @@ section.content article div.speaker p {
     margin-left: 180px;
 }
 
+section.content article div.speaker ul {
+    margin-left: 180px;
+    border-top: solid #ccc 1px;
+    padding-top: 5px;
+}
+
+section.content article div.speaker ul li {
+    margin-bottom: 8px;
+}
+
+section.content article div.speaker ul li a {
+    font-weight: normal;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
 section.content article div.speaker p a {
     font-weight: normal;
     text-decoration: underline;
