@@ -74,6 +74,23 @@ header .promote  {
     float:right;
 }
 
+div.jsdocs {
+    margin-bottom: 15px;
+    height: 175px;
+}
+
+#wrap > header div.sponsors {
+   height: 191px;
+   margin-bottom: 15px;
+}
+#wrap > header div.sponsors h3 {
+   border-bottom: solid #CCC 1px;
+   text-align: right;
+   font-weight: normal;
+   text-transform: uppercase;
+   padding-bottom: 3px;
+}
+
 section.content {
     width: 750px;
     float: left;
@@ -87,6 +104,7 @@ section.content article aside {
 
 section.content article div.promote-image{
     float: left;
+    margin-bottom: 15px;
 }
 
 section.content article div.promote-image img {
@@ -171,6 +189,22 @@ section.content article div.speaker h3 span {
 
 section.content article div.speaker p {
     margin-left: 180px;
+}
+
+section.content article div.speaker ul {
+    margin-left: 180px;
+    border-top: solid #ccc 1px;
+    padding-top: 5px;
+}
+
+section.content article div.speaker ul li {
+    margin-bottom: 8px;
+}
+
+section.content article div.speaker ul li a {
+    font-weight: normal;
+    text-decoration: underline;
+    font-size: 14px;
 }
 
 section.content article div.speaker p a {
