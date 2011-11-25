@@ -70,6 +70,9 @@ header nav ul li a:hover {
     height: 24px;
     width: 24px;
 }
+header .promote  {
+    float:right;
+}
 
 section.content {
     width: 750px;
@@ -82,7 +85,7 @@ section.content article aside {
     margin-top: 50px;
 }
 
-section.content article div.promote-image {
+section.content article div.promote-image{
     float: left;
 }
 
@@ -184,6 +187,7 @@ section.content article div.speaker div.avatar img {
 	-webkit-transition: all 0.5s ease-out;
 	-moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
+    float:left;
 }
  
 section.content article div.speaker div.avatar img:hover {
