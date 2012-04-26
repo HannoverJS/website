@@ -74,9 +74,8 @@ header .promote  {
     float:right;
 }
 
-div.jsdocs {
-    margin-bottom: 15px;
-    height: 175px;
+.sponsors img{
+    padding: 10px;
 }
 
 #wrap > header div.sponsors {
