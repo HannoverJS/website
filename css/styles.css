@@ -74,13 +74,17 @@ header .promote  {
     float:right;
 }
 
-.sponsors img{
-    padding: 10px;
+div.jsdocs {
+    height: 175px;
 }
 
 #wrap > header div.sponsors {
    height: 191px;
    margin-bottom: 15px;
+}
+#wrap > header div.sponsors img {
+    display: block;
+    margin-bottom: 10px; 
 }
 #wrap > header div.sponsors h3 {
    border-bottom: solid #CCC 1px;
