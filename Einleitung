@@ -1,0 +1,21 @@
+Einleitung
+	- Über mich
+		- Frontend-Entwickler
+		- Nun CTO
+		- Hälfte entwickeln, hälfte Orga, Meetings
+		- verantwortlich für die internen Prozesse in der Entwicklung
+	- Historie / warum Vagrant
+		- 10 Jahre Projekte
+			- PHP 4
+			- PHP 5
+			- Unterschiedliche Konfigurationen / Datenbanken
+		- verschiedenste Freelancer
+			- wie bringe ich diese in die Lage möglichst schnell und stabil arbeiten zu können
+		- Unser altes Setup
+			- Altes Versionierungssystem (qvcs): Pfui
+			- lokale Entwicklungsumgebung mit LAMP
+			- Jeder benutzt seine eigene IDE
+	- Jetzt-zeit
+		- Zusammenschluss der Firmen
+		- neues Arbeiten
+		-
