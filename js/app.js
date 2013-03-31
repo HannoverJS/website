@@ -75,7 +75,13 @@ angular.module('hannoverjs')
 
             self.getNextTalkDate = function(){
 
-                var talkDateInCurrentMonth = self.getTalkDayOfMonth(getCurrentMonthIndex() + 1);
+                var talkDateInCurrentMonth = self
+                                                .getTalkDayOfMonth(getCurrentMonthIndex() + 1)
+                                                .hour(23)
+                                                .minute(59)
+                                                .second(59)
+                                                .millisecond(999);
+
 
                 if (self.isCurrentMonthTalkMonth() && self.getNow().isBefore(talkDateInCurrentMonth)){
                     //we are in a talk month and it's before the date

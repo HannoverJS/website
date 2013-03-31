@@ -34,6 +34,16 @@ test('in March 2013, before talk date, detects 2013-03-28 as talk date', functio
     ok(talkDate === '2013-03-28', 'detects correct talk date');
 });
 
+test('in March 2013, on talk date, detects 2013-03-28 as talk date', function(){
+
+    dateService.getNow = function(){
+        return moment('2013-03-28');
+    };
+
+    var talkDate = dateService.getNextTalkDate().format(dateFormat);
+    ok(talkDate === '2013-03-28', 'detects correct talk date');
+});
+
 test('in March 2013, after talk date, detects 2013-05-23 as talk date', function(){
 
     dateService.getNow = function(){
