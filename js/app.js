@@ -120,7 +120,7 @@ angular.module('hannoverjs')
                 $scope.talkHeaderTemplate = 'views/talks/talks_header.tpl.html';
             }
 
-            var actualTalkTemplate = '/views/talks/' + $routeParams.month + '_' + $routeParams.year + '.tpl.html';
+            var actualTalkTemplate = 'views/talks/' + $routeParams.month + '_' + $routeParams.year + '.tpl.html';
             var defaultTalkTemplate = 'views/talks/default.tpl.html';
 
             //This could be improved so that we actually use the template that we fetch.
