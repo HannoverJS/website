@@ -9,7 +9,13 @@ angular.module('hannoverjs', []).
     $routeProvider.when('/speakers', {templateUrl: 'views/speaker.tpl.html'});
     $routeProvider.when('/contact', {templateUrl: 'views/contact.tpl.html'});
     $routeProvider.when('/talkIdeas', {templateUrl: 'views/talk_ideas.tpl.html'});
-    $routeProvider.when('/talks', {templateUrl: 'views/talks.tpl.html', controller: 'TalkDateController'});
+    
+    //that feels super lame, actually we just want to get access to the dateService here and then
+    //redirect to the route for the next date. Couldn't get that to work and so we use
+    //a dummy controller and also a dummy template because otherwise the controller would't be invoked
+    $routeProvider.when('/talks', { template: '<div></div>', controller: 'CurrentTalkController'});
+    
+    $routeProvider.when('/talks/:month/:year', {template: '<div ng-include="templateUrl"></div>', controller: 'TalksController'});
     $routeProvider.otherwise({redirectTo: '/'});
   }]);
 
@@ -89,6 +95,44 @@ angular.module('hannoverjs')
 
 angular.module('hannoverjs')
        .controller('TalkDateController', ['$scope', 'dateService', function($scope, dateService){
-
             $scope.talkDate = dateService.getNextTalkDate().format('Do [of] MMMM');
        }]);
+
+angular.module('hannoverjs')
+       .controller('CurrentTalkController', ['dateService', '$location', function(dateService, $location){
+            var nextTalk = dateService.getNextTalkDate();
+            $location.path('talks/' + nextTalk.format('MM') + '/' + nextTalk.format('YYYY'));
+       }]);
+
+angular.module('hannoverjs')
+       .controller('TalksController', ['$scope', '$http', '$routeParams', 'dateService', function($scope, $http, $routeParams, dateService){
+
+            var nextTalk = dateService.getNextTalkDate();
+
+            $scope.talkDate = nextTalk.format('Do [of] MMMM');
+            
+            //in case we are looking at an old talk, don't show the default header as it would confuse people
+            //instead tell them, that they are looking at an old line up
+            if (nextTalk.format('MMYYYY').toLowerCase() !== ($routeParams.month + $routeParams.year).toLowerCase()){
+                $scope.talkHeaderTemplate = 'views/talks/talks_header_archive.tpl.html';
+            }
+            else{
+                $scope.talkHeaderTemplate = 'views/talks/talks_header.tpl.html';
+            }
+
+            var actualTalkTemplate = '/views/talks/' + $routeParams.month + '_' + $routeParams.year + '.tpl.html';
+            var defaultTalkTemplate = 'views/talks/default.tpl.html';
+
+            //This could be improved so that we actually use the template that we fetch.
+            //Currently we only fetch it to dertermine if it exists. If it exists, AngularJS will fetch it again
+            $http
+                .get(actualTalkTemplate)
+                .success(function(){
+                    $scope.templateUrl = actualTalkTemplate;
+                })
+                .error(function(){
+                    $scope.templateUrl = defaultTalkTemplate;
+                });
+       }]);
+
+
