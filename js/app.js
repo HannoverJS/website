@@ -11,9 +11,13 @@ angular.module('hannoverjs', []).
     $routeProvider.when('/talkIdeas', {templateUrl: 'views/talk_ideas.tpl.html'});
     
     //that feels super lame, actually we just want to get access to the dateService here and then
-    //redirect to the route for the next date. Couldn't get that to work and so we use
-    //a dummy controller and also a dummy template because otherwise the controller would't be invoked
-    $routeProvider.when('/talks', { template: '<div></div>', controller: 'CurrentTalkController'});
+    //redirect to the route for the next date. We need to use an inline controller and also set a pseudo template
+    //otherwise it's not getting invoked.
+
+    $routeProvider.when('/talks', { template: '<div></div>', controller: ['dateService', '$location', function(dateService, $location){
+        var nextTalk = dateService.getNextTalkDate();
+        $location.path('talks/' + nextTalk.format('MM') + '/' + nextTalk.format('YYYY'));
+    }]});
     
     $routeProvider.when('/talks/:month/:year', {template: '<div ng-include="templateUrl"></div>', controller: 'TalksController'});
     $routeProvider.otherwise({redirectTo: '/'});
@@ -96,12 +100,6 @@ angular.module('hannoverjs')
 angular.module('hannoverjs')
        .controller('TalkDateController', ['$scope', 'dateService', function($scope, dateService){
             $scope.talkDate = dateService.getNextTalkDate().format('Do [of] MMMM');
-       }]);
-
-angular.module('hannoverjs')
-       .controller('CurrentTalkController', ['dateService', '$location', function(dateService, $location){
-            var nextTalk = dateService.getNextTalkDate();
-            $location.path('talks/' + nextTalk.format('MM') + '/' + nextTalk.format('YYYY'));
        }]);
 
 angular.module('hannoverjs')
