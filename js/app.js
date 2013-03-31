@@ -55,15 +55,12 @@ angular.module('hannoverjs')
                 var monthIndex = month -1;
                 var weekOffset = hannoverJsRhythm - 1;
 
-                var firstOfMonth = moment().date(1).month(monthIndex);
+                var firstOfMonth = self.getNow().date(1).month(monthIndex);
 
                 var weekdayOfFirst = firstOfMonth
                                     .day();
 
-                if (weekdayOfFirst === hannoverJsWeekday){
-                    return firstOfMonth;
-                }
-                else if (weekdayOfFirst < hannoverJsWeekday){
+                if (weekdayOfFirst <= hannoverJsWeekday){
                     return firstOfMonth
                                 .add('d', hannoverJsWeekday - weekdayOfFirst)
                                 .add('weeks', weekOffset);

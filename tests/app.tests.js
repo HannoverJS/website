@@ -27,7 +27,7 @@ test('detects April as non-talk month', function(){
 test('in March 2013, before talk date, detects 2013-03-28 as talk date', function(){
 
     dateService.getNow = function(){
-        return moment('2012-03-15');
+        return moment('2013-03-15');
     };
 
     var talkDate = dateService.getNextTalkDate().format(dateFormat);
@@ -62,4 +62,14 @@ test('in December 2013, detects 2014-01-23 as talk date', function(){
 
     var talkDate = dateService.getNextTalkDate().format(dateFormat);
     ok(talkDate === '2014-01-23', 'detects correct talk date');
+});
+
+test('on 1st December 2012 (Thursday), detects 2012-11-22 as talk date', function(){
+
+    dateService.getNow = function(){
+        return moment('2012-11-01');
+    };
+
+    var talkDate = dateService.getNextTalkDate().format(dateFormat);
+    ok(talkDate === '2012-11-22', 'detects correct talk date');
 });
