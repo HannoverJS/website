@@ -16,7 +16,7 @@ angular.module('hannoverjs', []).
 
     $routeProvider.when('/talks', { template: '<div></div>', controller: ['dateService', '$location', function(dateService, $location){
         var nextTalk = dateService.getNextTalkDate();
-        $location.path('talks/' + nextTalk.format('MM') + '/' + nextTalk.format('YYYY'));
+        $location.path('talks/' + nextTalk.format('MM') + '/' + nextTalk.format('YYYY')).replace();
     }]});
     
     $routeProvider.when('/talks/:month/:year', {template: '<div ng-include="templateUrl"></div>', controller: 'TalksController'});
