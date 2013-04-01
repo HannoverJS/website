@@ -28,7 +28,7 @@ angular.module('hannoverjs')
             var self = {};
 
             self.getNow = function(){
-                return "FOO";
+                return moment();
             };
 
             return self;
