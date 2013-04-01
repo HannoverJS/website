@@ -24,7 +24,18 @@ angular.module('hannoverjs', []).
   }]);
 
 angular.module('hannoverjs')
-       .service('dateService', function(){
+       .service('timeService', function(){
+            var self = {};
+
+            self.getNow = function(){
+                return "FOO";
+            };
+
+            return self;
+       });
+
+angular.module('hannoverjs')
+       .service('dateService', ['timeService', function(timeService){
             var self = {};
 
             var hannoverJsMonth = 'odd',
@@ -37,7 +48,11 @@ angular.module('hannoverjs')
             };
 
             var getCurrentMonthIndex = function(){
-                return self.getNow().month();
+                return timeService.getNow().month();
+            };
+
+            self.foo = function(){
+                return timeService.getNow();
             };
 
             self.getNow = function(){
@@ -55,7 +70,7 @@ angular.module('hannoverjs')
                 var monthIndex = month -1;
                 var weekOffset = hannoverJsRhythm - 1;
 
-                var firstOfMonth = self.getNow().date(1).month(monthIndex);
+                var firstOfMonth = timeService.getNow().date(1).month(monthIndex);
 
                 var weekdayOfFirst = firstOfMonth
                                     .day();
@@ -83,7 +98,7 @@ angular.module('hannoverjs')
                                                 .millisecond(999);
 
 
-                if (self.isCurrentMonthTalkMonth() && self.getNow().isBefore(talkDateInCurrentMonth)){
+                if (self.isCurrentMonthTalkMonth() && timeService.getNow().isBefore(talkDateInCurrentMonth)){
                     //we are in a talk month and it's before the date
                     return talkDateInCurrentMonth;
                 }
@@ -98,7 +113,7 @@ angular.module('hannoverjs')
             };
 
             return self;
-       });
+       }]);
 
 angular.module('hannoverjs')
        .controller('TalkDateController', ['$scope', 'dateService', function($scope, dateService){
