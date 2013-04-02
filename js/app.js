@@ -51,14 +51,6 @@ angular.module('hannoverjs')
                 return timeService.getNow().month();
             };
 
-            self.foo = function(){
-                return timeService.getNow();
-            };
-
-            self.getNow = function(){
-                return moment();
-            };
-
             self.isCurrentMonthTalkMonth = function(){
                 //we internally only deal with index based months so January is 0.
                 //That's why we need to adjust the value here
