@@ -5,7 +5,6 @@ angular.module('hannoverjs', []).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {templateUrl: 'views/home.tpl.html', controller: 'TalkDateController'});
     $routeProvider.when('/about', {templateUrl: 'views/about.tpl.html'});
-    $routeProvider.when('/contact', {templateUrl: 'views/contact.tpl.html'});
     
     //that feels super lame, actually we just want to get access to the dateService here and then
     //redirect to the route for the next date. We need to use an inline controller and also set a pseudo template
