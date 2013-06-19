@@ -291,6 +291,10 @@ section.content article section ul a {
     color: #666;
 }
 
+section.content article h1.hero-title {
+    font-size: 60px;
+}
+
 /* Contain floats: h5bp.com/q */
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
