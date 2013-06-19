@@ -5,7 +5,6 @@ angular.module('hannoverjs', []).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {templateUrl: 'views/home.tpl.html', controller: 'TalkDateController'});
     $routeProvider.when('/about', {templateUrl: 'views/about.tpl.html'});
-    $routeProvider.when('/speakers', {templateUrl: 'views/speaker.tpl.html'});
     $routeProvider.when('/contact', {templateUrl: 'views/contact.tpl.html'});
     
     //that feels super lame, actually we just want to get access to the dateService here and then
