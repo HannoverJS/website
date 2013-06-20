@@ -297,6 +297,10 @@ section.content article h1.hero-title {
     font-weight: normal;
 }
 
+#wrap header section ul li, #wrap header p {
+    font-size: 0.8em;
+}
+
 /* Contain floats: h5bp.com/q */
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
