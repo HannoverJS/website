@@ -4,7 +4,7 @@
 angular.module('hannoverjs', []).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {templateUrl: 'views/home.tpl.html', controller: 'TalksController'});
-
+    $routeProvider.when('/speakers', {templateUrl: 'views/speaker.tpl.html'});
     $routeProvider.when('/talks/:month/:year', {template: '<div ng-include="templateUrl"></div>', controller: 'TalksController'});
     $routeProvider.otherwise({redirectTo: '/'});
   }]);
