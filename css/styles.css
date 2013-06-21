@@ -45,17 +45,16 @@ p {
     margin-top: 10px;
 }
 
+#wrap > header nav ul li a {
+    font-size: 0.8em;
+    font-weight:normal;
+}
+
 header nav ul li {
     margin-bottom: 5px;
 }
 
-header nav ul li a {
-    text-transform: uppercase;
-    font-size: 20px;
-}
-
 header nav ul li a:hover {
-    /*background-color: #F0DB4F;*/
     background-color: #CCC;
 }
 
