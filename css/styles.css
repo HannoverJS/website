@@ -45,18 +45,16 @@ p {
     margin-top: 10px;
 }
 
-header nav ul li {
-    margin-bottom: 5px;
-    text-align: right;
+#wrap > header nav ul li a {
+    font-size: 0.8em;
+    font-weight:normal;
 }
 
-header nav ul li a {
-    text-transform: uppercase;
-    font-size: 20px;
+header nav ul li {
+    margin-bottom: 5px;
 }
 
 header nav ul li a:hover {
-    /*background-color: #F0DB4F;*/
     background-color: #CCC;
 }
 
@@ -144,7 +142,6 @@ section.content article header {
     margin: 0;
     padding: 0;
     height: 150px;
-    border-bottom: dotted #323230 1px;
     text-align: left;
 }
 
@@ -289,6 +286,18 @@ section.content article section ul a {
     font-size: 13px;
     text-align: center;
     color: #666;
+}
+
+section.content article h1.hero-title {
+    font-size: 60px;
+}
+
+#wrap section li a {
+    font-weight: normal;
+}
+
+#wrap header section ul li, #wrap header p {
+    font-size: 0.8em;
 }
 
 /* Contain floats: h5bp.com/q */

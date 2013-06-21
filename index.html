@@ -22,58 +22,34 @@
     <body>
         <div id="wrap">
             <header>
-                <img alt="HannoverJS Logo" src="images/hannoverjs-logo-150x150.png" width="150" height="150" class="logo"/>
+
+                <a href="/"><img alt="HannoverJS Logo" src="images/hannoverjs-logo-150x150.png" width="150" height="150" class="logo"/></a>
+
+                <p>Hannover's regulary JavaScript Meetup</p>
+
                 <nav>
                     <ul>
-                        <li><a href="#/home">Home</a></li>
-                        <li><a href="#/talks">Talks</a></li>
-                        <li><a href="#/talkIdeas">Talk ideas</a></li>
-                        <li><a href="#/about">About</a></li>
                         <li><a href="#/speakers">Speakers</a></li>
-                        <li><a href="#/drinkjs">DrinkJS</a></li>
-                        <li><a href="#/contact">Contact</a></li>
                     </ul>
-                    </nav>
-                <div class="social-bookmarks">
-                    <a href="http://facebook.com/hannoverjs"><img alt="Facebook Button" src="images/icons/social-bookmarks/facebook.png"/></a>
-                    <a href="http://twitter.com/#!/hannoverjs"><img alt="Twitter Button" src="images/icons/social-bookmarks/twitter.png"/></a>
-                    <a href="http://www.flickr.com/photos/hannoverjs"><img alt="Flickr Button" src="images/icons/social-bookmarks/flickr.png"/></a>
-                </div>
+                </nav>
 
-                <div class="sponsors">
-                    <h3>Sponsors</h3>
-
-                    <a href=http://www.edelstall.de><img src="http://edelstall.de/presse/logo/EDELSTALL-bildmarke.jpg" align="right" alt="EDELSTALL Logo" width="100"></a>
-                    <a href="http://buhmann.de/"><img alt="Dr. Buhmann Schule" src="images/buhmann.jpg" width="100" align="right"/></a>
-                </div>
-
-                <div class="jsdocs">
-                    <a href="https://developer.mozilla.org/en/JavaScript"><img alt="Promote JS banner" src="http://static.jsconf.us/promotejsv.gif" width="100" align="right"/></a>
-                </div>
-            </header>
-
-            <section class="content" ng-view>
-            
-            </section>
-
-            <footer>
                 <section class="socialize">
 
-                    <h1>Sozialize</h1>
+                    <h1>Socialize</h1>
 
                     <ul>
-                        <li><span>Hannover.js on <a href="http://www.twitter.com/#!/hannoverjs/">Twitter</a></span></li>
-                        <li><span>Hannover.js on <a href="http://www.facebook.com/hannoverjs">Facebook</a></span></li>
-                        <li><span>Hannover.js on <a href="http://www.flickr.com/photos/hannoverjs">Flickr</a></span></li>
+                        <li><span><a href="http://www.twitter.com/#!/hannoverjs/">Twitter</a></span></li>
+                        <li><span><a href="http://www.facebook.com/hannoverjs">Facebook</a></span></li>
+                        <li><span><a href="http://www.flickr.com/photos/hannoverjs">Flickr</a></span></li>
                     </ul>
                 </section>
                 <section class="get-in-touch">
 
-                    <h1>Get in touch</h1>
+                    <h1>Contact</h1>
 
                     <ul>
                         <li>
-                            <a href="http://www.twitter.com/#!/cburgdorf/">Christoph Burgdorf</a> <span class="founder">(Founder)</span></li>
+                            <a href="http://www.twitter.com/#!/cburgdorf/">Christoph Burgdorf</a></li>
                         <li><a href="http://www.twitter.com/#!/PascalPrecht/">Pascal Precht</a></li>
                     </ul>
                 </section>
@@ -82,11 +58,22 @@
                     <h1>Location</h1>
 
                     <ul>
-                        <li><a href="http://www.edelstall.de/">EDELSTALL</a></li>
+                        <li>
+                            <a href="http://www.edelstall.de">
+                                <img src="http://edelstall.de/presse/logo/EDELSTALL-bildmarke.jpg" alt="EDELSTALL Logo" width="100">
+                                Edelstall
+                            </a>
+                        </li>
                     </ul>
+
                 </section>
-                <p class="copyright">Copyright &copy; Hannover.js - Hannover's regulary JavaScript Meetup 2011 - 2012 </p>
-            </footer>
+
+            </header>
+
+            <section class="content" ng-view>
+            
+            </section>
+
         </div>
 
         <script src="js/moment.min.js"></script>

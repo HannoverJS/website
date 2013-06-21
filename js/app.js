@@ -3,22 +3,8 @@
 // Declare app level module which depends on filters, and services
 angular.module('hannoverjs', []).
   config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/', {templateUrl: 'views/home.tpl.html', controller: 'TalkDateController'});
-    $routeProvider.when('/drinkjs', {templateUrl: 'views/drinkjs.tpl.html'});
-    $routeProvider.when('/about', {templateUrl: 'views/about.tpl.html'});
+    $routeProvider.when('/', {templateUrl: 'views/home.tpl.html', controller: 'TalksController'});
     $routeProvider.when('/speakers', {templateUrl: 'views/speaker.tpl.html'});
-    $routeProvider.when('/contact', {templateUrl: 'views/contact.tpl.html'});
-    $routeProvider.when('/talkIdeas', {templateUrl: 'views/talk_ideas.tpl.html'});
-    
-    //that feels super lame, actually we just want to get access to the dateService here and then
-    //redirect to the route for the next date. We need to use an inline controller and also set a pseudo template
-    //otherwise it's not getting invoked.
-
-    $routeProvider.when('/talks', { template: '<div></div>', controller: ['dateService', '$location', function(dateService, $location){
-        var nextTalk = dateService.getNextTalkDate();
-        $location.path('talks/' + nextTalk.format('MM') + '/' + nextTalk.format('YYYY')).replace();
-    }]});
-    
     $routeProvider.when('/talks/:month/:year', {template: '<div ng-include="templateUrl"></div>', controller: 'TalksController'});
     $routeProvider.otherwise({redirectTo: '/'});
   }]);
@@ -108,27 +94,25 @@ angular.module('hannoverjs')
        }]);
 
 angular.module('hannoverjs')
-       .controller('TalkDateController', ['$scope', 'dateService', function($scope, dateService){
-            $scope.talkDate = dateService.getNextTalkDate().format('Do [of] MMMM');
-       }]);
-
-angular.module('hannoverjs')
-       .controller('TalksController', ['$scope', '$http', '$routeParams', 'dateService', function($scope, $http, $routeParams, dateService){
+       .controller('TalksController', ['$scope', '$location', '$http', '$routeParams', 'dateService', function($scope, $location, $http, $routeParams, dateService){
 
             var nextTalk = dateService.getNextTalkDate();
 
             $scope.talkDate = nextTalk.format('Do [of] MMMM');
+
+            var month = $routeParams.month || nextTalk.format('MM'),
+                year = $routeParams.year   || nextTalk.format('YYYY');
             
-            //in case we are looking at an old talk, don't show the default header as it would confuse people
-            //instead tell them, that they are looking at an old line up
-            if (nextTalk.format('MMYYYY').toLowerCase() !== ($routeParams.month + $routeParams.year).toLowerCase()){
+            // in case we are looking at an old talk, don't show the default header as it would confuse people
+            // instead tell them, that they are looking at an old line up
+            if (nextTalk.format('MMYYYY').toLowerCase() !== (month + year).toLowerCase()){
                 $scope.talkHeaderTemplate = 'views/talks/talks_header_archive.tpl.html';
             }
             else{
                 $scope.talkHeaderTemplate = 'views/talks/talks_header.tpl.html';
             }
 
-            var actualTalkTemplate = 'views/talks/' + $routeParams.month + '_' + $routeParams.year + '.tpl.html';
+            var actualTalkTemplate = 'views/talks/' + month + '_' + year + '.tpl.html';
             var defaultTalkTemplate = 'views/talks/default.tpl.html';
 
             //This could be improved so that we actually use the template that we fetch.
