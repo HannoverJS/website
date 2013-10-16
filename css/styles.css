@@ -17,10 +17,6 @@ ul {
     margin: 0;
 }
 
-ul li {
-    list-style-type: none;
-}
-
 p {
     font-size: 14px;
 }
@@ -181,30 +177,34 @@ section.content article div.speaker {
     padding: 10px;
 }
 
-section.content article div.speaker h3 {
+.box-content{
     margin-left: 180px;
+    font-size: 14px;
+}
+
+.speaker__headline{
     color: #323230;
 }
 
-section.content article div.speaker h3 span {
-    color: #666;
+.speaker__talk-name{
+    color: #666
 }
 
-section.content article div.speaker p {
-    margin-left: 180px;
+.speaker__topics{
+    margin-left: 20px;
 }
 
-section.content article div.speaker ul {
-    margin-left: 180px;
+.contact-details-list{
     border-top: solid #ccc 1px;
     padding-top: 5px;
+    list-style: none;
 }
 
-section.content article div.speaker ul li {
+.contact-details-list__list-item{
     margin-bottom: 8px;
 }
 
-section.content article div.speaker ul li a {
+.contact-details-list__list-item-link {
     font-weight: normal;
     text-decoration: underline;
     font-size: 14px;
