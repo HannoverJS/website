@@ -51,13 +51,6 @@ angular.module('hannoverjs')
                 return timeService.getNow().month();
             };
 
-            self.isCurrentMonthTalkMonth = function(){
-                //we internally only deal with index based months so January is 0.
-                //That's why we need to adjust the value here
-                var currentMonth = getCurrentMonthIndex() + 1;
-                return hannoverJsMonth === 'odd' ? !isEven(currentMonth) : isEven(currentMonth);
-            };
-
             self.getTalkDayOfMonth = function(month){
                 var monthIndex = month -1;
                 var weekOffset = hannoverJsRhythm - 1;
@@ -89,17 +82,12 @@ angular.module('hannoverjs')
                                                 .second(59)
                                                 .millisecond(999);
 
-
-                if (self.isCurrentMonthTalkMonth() && timeService.getNow().isBefore(talkDateInCurrentMonth)){
+                if (timeService.getNow().isBefore(talkDateInCurrentMonth)){
                     //we are in a talk month and it's before the date
                     return talkDateInCurrentMonth;
                 }
-                else if(self.isCurrentMonthTalkMonth()){
+                else {
                     //we are in a talk month but it already happened, fast fotward two month
-                    return self.getTalkDayOfMonth(getCurrentMonthIndex() + 2 + 1);
-                }
-                else{
-                    //we are not in a talk month, fast forward one month
                     return self.getTalkDayOfMonth(getCurrentMonthIndex() + 1 + 1);
                 }
             };
