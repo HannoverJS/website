@@ -1,8 +1,7 @@
 import axios from 'axios'
-import { camelizeKeys } from 'humps'
 import * as cache from './cache'
 
-export default function api(url) {
+export default function fetch(url) {
   const hit = cache.get(url, true)
   if (hit) {
     return Promise.resolve(hit)
@@ -10,8 +9,7 @@ export default function api(url) {
 
   return axios.get(url)
     .then(res => {
-      let { data } = res
-      data = camelizeKeys(data)
+      const { data } = res
 
       if (process.env.NODE_ENV !== 'development') {
         cache.set(url, data, true)

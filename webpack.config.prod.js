@@ -1,7 +1,4 @@
-/* eslint-disable max-len */
-
 import webpack from 'webpack'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import baseConfig from './webpack.config.base'
 
 export default {
@@ -12,11 +9,11 @@ export default {
       ...baseConfig.module.loaders,
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract(
+        loaders: [
           'style-loader',
           'css-loader?modules&minimize&&importLoaders=1&localIdentName=[hash:base64:5]',
           'postcss-loader'
-        )
+        ]
       }
     ]
   },
@@ -31,8 +28,9 @@ export default {
       compressor: {
         screw_ie8: true,
         warnings: false
-      }
+      },
+      comments: false
     }),
-    new ExtractTextPlugin('style.css')
+    new webpack.optimize.DedupePlugin()
   ]
 }

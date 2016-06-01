@@ -4,7 +4,7 @@ import Section from '../Section'
 import Avatar from '../Avatar'
 import Button from '../Button'
 import Link from '../Link'
-import api from '../../services/api'
+import fetch from '../../services/fetch'
 import styles from './styles.css'
 
 export default class Talks extends Component {
@@ -26,18 +26,18 @@ export default class Talks extends Component {
   }
 
   componentDidMount() {
-    api('https://api.github.com/repos/HannoverJS/talks/issues?state=open&labels=Upcoming%20Talk')
+    fetch('https://api.github.com/repos/HannoverJS/talks/issues?state=open&labels=Upcoming%20Talk')
       .then(res => {
         const talks = res
-          .filter(talk => new Date(talk.milestone.dueOn).valueOf() > new Date().valueOf())
+          .filter(talk => new Date(talk.milestone.due_on).valueOf() > new Date().valueOf())
           .map(talk => {
-            const { title, body, user: { login, avatarUrl } } = talk
+            const { title, body, user: { login, avatar_url } } = talk
             return {
               title,
               description: body,
               speaker: {
                 name: login,
-                avatar: avatarUrl
+                avatar: avatar_url
               }
             }
           })

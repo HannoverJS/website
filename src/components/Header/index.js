@@ -3,7 +3,7 @@ import Logo from '../Logo'
 import Appell from '../Appell'
 import TextHighlight from '../TextHighlight'
 import Button from '../Button'
-import api from '../../services/api'
+import fetch from '../../services/fetch'
 import styles from './styles.css'
 
 export default class Header extends Component {
@@ -20,13 +20,13 @@ export default class Header extends Component {
   }
 
   componentDidMount() {
-    api('http://cors.io/?u=https://api.meetup.com/hannoverjs/events?photo-host=public&page=1&sig_id=193357699&sig=1984d695155f4559b3c8fb5d49b7a7e13ac89936')
+    fetch('http://cors.io/?u=https://api.meetup.com/hannoverjs/events?photo-host=public&page=1&sig_id=193357699&sig=1984d695155f4559b3c8fb5d49b7a7e13ac89936')
       .then(res => {
         const {
           time,
           link,
           venue: {
-            address1,
+            address_1,
             name
           }
         } = res[0]
@@ -35,7 +35,7 @@ export default class Header extends Component {
           date: time,
           link,
           location: name,
-          street: address1
+          street: address_1
         })
       })
     .catch(() => {

@@ -1,6 +1,11 @@
 import path from 'path'
+import autoprefixer from 'autoprefixer'
+import postcssImport from 'postcss-import'
+import postcssImportUrl from 'postcss-import-url'
+import postcssCustomProperties from 'postcss-custom-properties'
 
 export default {
+  dev: 'cheap-module-source-map',
   context: path.join(__dirname, './src'),
   entry: {
     js: './index.js',
@@ -30,7 +35,7 @@ export default {
       },
       {
         test: /\.jpg$/,
-        loader: 'file-loader'
+        loader: 'url-loader?limit=100000'
       },
       {
         test: /\.json$/,
@@ -42,9 +47,9 @@ export default {
     extensions: ['', '.js']
   },
   postcss: [
-    require('autoprefixer'),
-    require('postcss-import'),
-    require('postcss-import-url'),
-    require('postcss-custom-properties')
+    autoprefixer,
+    postcssImport,
+    postcssImportUrl,
+    postcssCustomProperties
   ]
 }
