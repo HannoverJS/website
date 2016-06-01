@@ -1,0 +1,25 @@
+@import '../variables.css';
+
+.root {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .root {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .root {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .root {
+    width: 1200px;
+  }
+}

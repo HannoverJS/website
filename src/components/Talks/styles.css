@@ -1,0 +1,85 @@
+@import '../variables.css';
+
+@media (max-width: 767px) {
+  .content {
+    flex-direction: column;
+  }
+}
+
+.freeSlot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.talk {
+  flex: 1;
+  padding: 20px;
+  background: var(--yellow);
+  color: var(--gray);
+  text-align: center;
+  font-weight: 300;
+}
+
+.talk:last-child {
+  border-top: 0;
+  border-left: 1px solid var(--gray);
+}
+
+@media (max-width: 767px) {
+  .talk:last-child {
+    border-top: 1px solid var(--gray);
+    border-left: 0;
+  }
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.avatar {
+  margin-top: 20px;
+}
+
+.description {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.description h5,
+.description h6 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.description h5 {
+  font-weight: 400;
+}
+
+.description h6 {
+  font-weight: 300;
+}
+
+.description h6 a {
+  color: var(--gray);
+  transition: 0.2s;
+}
+
+.description h6 a:hover,
+.description h6 a:focus {
+  opacity: 0.6;
+}
+
+.description p {
+  margin: 0;
+  margin-top: 20px;
+}
+
+.note {
+  font-size: 14px;
+}
