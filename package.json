@@ -11,7 +11,8 @@
     "test": "npm run lint",
     "start": "node -r babel-register ./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js -d --history-api-fallback --hot --inline --progress --colors",
     "build": "npm run clean && cross-env NODE_ENV=production node -r babel-register ./node_modules/.bin/webpack --config webpack.config.prod.js --progress --colors",
-    "deploy": "npm run build && node -r babel-register ./scripts/prepareDeploy.js && gh-pages -d dist -t -m 'deploy new version'"
+    "build:static": "node -r babel-register ./scripts/build-static.js",
+    "deploy": "npm run build && npm run build:static && gh-pages -d dist -t -m 'deploy new version'"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.5.0",
     "babel-preset-stage-1": "^6.5.0",
+    "cli-real-favicon": "0.0.6",
     "cross-env": "^1.0.8",
     "css-loader": "^0.23.1",
     "eslint": "^2.11.0",
@@ -41,6 +43,7 @@
     "eslint-plugin-import": "^1.8.1",
     "eslint-plugin-jsx-a11y": "^1.2.2",
     "eslint-plugin-react": "^5.1.1",
+    "favicons": "^4.7.1",
     "file-loader": "^0.8.5",
     "fs-extra": "^0.30.0",
     "gh-pages": "^0.11.0",
