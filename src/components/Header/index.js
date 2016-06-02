@@ -20,7 +20,7 @@ export default class Header extends Component {
   }
 
   componentDidMount() {
-    fetch('http://cors.io/?u=https://api.meetup.com/hannoverjs/events?photo-host=public&page=1&sig_id=193357699&sig=1984d695155f4559b3c8fb5d49b7a7e13ac89936')
+    fetch('https://jsonp.afeld.me/?url=https%3A%2F%2Fapi.meetup.com%2Fhannoverjs%2Fevents%3Fphoto-host%3Dpublic%26page%3D1%26sig_id%3D193357699%26sig%3D1984d695155f4559b3c8fb5d49b7a7e13ac89936')
       .then(res => {
         const {
           time,
