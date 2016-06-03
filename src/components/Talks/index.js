@@ -59,13 +59,13 @@ export default class Talks extends Component {
         <p className={styles.description}>
           This slot could be yours!
         </p>
-        <Button href="https://github.com/HannoverJS/talks#submit-a-talk" secondary>
+        <Button href="https://github.com/HannoverJS/talks#submitting-a-talk" secondary>
           Submit a Talk
         </Button>
         <p className={styles.note}>
           Do you need a talk idea?<br />
           We got you covered,{' '}
-          <Link href="https://github.com/HannoverJS/talks#hannoverjs-talks" gray>
+          <Link href="https://github.com/HannoverJS/talks#submitting-a-talk" gray>
             click me
           </Link>
           !
