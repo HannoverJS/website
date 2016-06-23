@@ -13,7 +13,7 @@ const team = [
     twitter: 'cburgdorf'
   },
   {
-    avatar: 'https://pbs.twimg.com/profile_images/729857366703775746/vBD1S7oD_400x400.jpg',
+    avatar: 'https://pbs.twimg.com/profile_images/740876520437211136/tpm5d6Ya_400x400.jpg',
     name: 'Pascal Precht',
     job: 'Trainer',
     company: 'thoughtram',
