@@ -23,7 +23,7 @@ export default class App extends Component {
         <Section
           title="What is this all about?"
           text={
-            'HannoverJS is a usergroup focused on JavaScript and related topcis. ' +
+            'HannoverJS is a usergroup focused on JavaScript and related topics. ' +
             'The idea has gained great interest around Lower-Saxony\'s JavaScript folks. ' +
             'We meet regularly on the 4th Thursday of every month at 7pm at NewStore, ' +
             'Bödekerstraße 56 in Hannover.'
