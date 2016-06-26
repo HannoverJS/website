@@ -4,6 +4,7 @@
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 64px;
 }
 
 @media (min-width: 768px) {

@@ -6,7 +6,6 @@ import LoadingSpinner from '../LoadingSpinner'
 import Section from '../Section'
 import Team from '../Team'
 import JoinUs from '../JoinUs'
-import Footer from '../Footer'
 import './styles.css'
 
 export default class App extends Component {
@@ -31,7 +30,6 @@ export default class App extends Component {
         />
         <Team />
         <JoinUs />
-        <Footer />
       </div>
     )
   }
