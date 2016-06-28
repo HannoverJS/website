@@ -29,7 +29,9 @@ export default class Talks extends Component {
     fetch('https://api.github.com/repos/HannoverJS/talks/issues?state=open&labels=Upcoming%20Talk')
       .then(res => {
         const talks = res
-          .filter(talk => new Date(talk.milestone.due_on).valueOf() > new Date().valueOf())
+          .filter(talk =>
+            talk.milestone && new Date(talk.milestone.due_on).valueOf() > new Date().valueOf()
+          )
           .map(talk => {
             const { title, body, user: { login, avatar_url } } = talk
             return {
@@ -44,7 +46,8 @@ export default class Talks extends Component {
         this.setState({ talks, loading: false })
         this.props.onLoaded()
       })
-      .catch(() => {
+      .catch((e) => {
+        console.log(e)
         this.setState({ loading: false, error: true })
         this.props.onLoaded()
       })
