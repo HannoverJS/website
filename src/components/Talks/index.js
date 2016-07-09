@@ -5,6 +5,7 @@ import Avatar from '../Avatar'
 import Button from '../Button'
 import Link from '../Link'
 import fetch from '../../services/fetch'
+import { GITHUB_API } from '../../constants/config'
 import styles from './styles.css'
 
 export default class Talks extends Component {
@@ -26,7 +27,7 @@ export default class Talks extends Component {
   }
 
   componentDidMount() {
-    fetch('https://api.github.com/repos/HannoverJS/talks/issues?state=open&labels=Upcoming%20Talk')
+    fetch(GITHUB_API)
       .then(res => {
         const talks = res
           .filter(talk =>
@@ -47,7 +48,7 @@ export default class Talks extends Component {
         this.props.onLoaded()
       })
       .catch((e) => {
-        console.log(e)
+        console.log(e) // eslint-disable-line no-console
         this.setState({ loading: false, error: true })
         this.props.onLoaded()
       })
@@ -110,7 +111,7 @@ export default class Talks extends Component {
       <Section
         contentClassName={styles.content}
         title="The Talks"
-        text={this.state.error && 'Error while loading the talks ...'}
+        text={this.state.error ? 'Error while loading the talks ...' : null}
       >
         {!this.state.loading && !this.state.error && this.renderTalks()}
       </Section>

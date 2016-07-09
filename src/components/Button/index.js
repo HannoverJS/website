@@ -4,7 +4,10 @@ import styles from './styles.css'
 export default function Button({ href, secondary, large, className, children }) {
   return (
     <a
-      className={`${styles.button} ${secondary && styles.secondary || ''} ${large && styles.large || ''} ${className || ''}`}
+      className={
+        `${styles.button} ${secondary && styles.secondary || ''}` +
+        `${large && styles.large || ''} ${className || ''}`
+      }
       href={href}
     >
       {children}

@@ -4,6 +4,7 @@ import Appell from '../Appell'
 import TextHighlight from '../TextHighlight'
 import Button from '../Button'
 import fetch from '../../services/fetch'
+import { MEETUP_API } from '../../constants/config'
 import styles from './styles.css'
 
 export default class Header extends Component {
@@ -20,7 +21,7 @@ export default class Header extends Component {
   }
 
   componentDidMount() {
-    fetch('https://crossorigin.me/https://api.meetup.com/hannoverjs/events?photo-host=public&page=1&sig_id=193357699&status=upcoming&sig=6ad22b496b6228a7a5aa9ace811a52a945b0ca70')
+    fetch(MEETUP_API)
       .then(res => {
         const {
           time,
@@ -38,7 +39,8 @@ export default class Header extends Component {
           street: address_1
         })
       })
-    .catch(() => {
+    .catch((e) => {
+      console.log(e) // eslint-disable-line no-console
       this.setState({ loading: false, error: true })
     })
   }
