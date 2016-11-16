@@ -1,4 +1,4 @@
-const TTL = 600000 // 10 min
+const TTL = 3600000 // 1 hour
 
 export function get(name, isJson) {
   const lastAccess = localStorage.getItem('lastAccess')

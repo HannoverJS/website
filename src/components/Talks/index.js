@@ -5,7 +5,7 @@ import Avatar from '../Avatar'
 import Button from '../Button'
 import Link from '../Link'
 import fetch from '../../services/fetch'
-import { GITHUB_API } from '../../constants/config'
+import { API } from '../../constants/config'
 import styles from './styles.css'
 
 export default class Talks extends Component {
@@ -27,7 +27,7 @@ export default class Talks extends Component {
   }
 
   componentDidMount() {
-    fetch(GITHUB_API)
+    fetch(API.upcomingTalks)
       .then(res => {
         const talks = res
           .filter(talk =>

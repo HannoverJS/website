@@ -4,7 +4,7 @@ import Appell from '../Appell'
 import TextHighlight from '../TextHighlight'
 import Button from '../Button'
 import fetch from '../../services/fetch'
-import { MEETUP_API } from '../../constants/config'
+import { API } from '../../constants/config'
 import styles from './styles.css'
 
 export default class Header extends Component {
@@ -21,7 +21,7 @@ export default class Header extends Component {
   }
 
   componentDidMount() {
-    fetch(MEETUP_API)
+    fetch(API.upcomingMeetups)
       .then(res => {
         const {
           time,
