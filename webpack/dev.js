@@ -6,11 +6,19 @@ import getHtmlPlugins from './getHtmlPlugins'
 
 export default {
   ...baseConfig,
-  dev: 'eval',
+  dev: 'cheap-module-source-map',
   module: {
     ...baseConfig.module,
     loaders: [
       ...baseConfig.module.loaders,
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: [
+          'react-hot',
+          'babel-loader'
+        ]
+      },
       {
         test: /\.css$/,
         loaders: [

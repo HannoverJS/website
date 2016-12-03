@@ -20,14 +20,6 @@ export default {
         loader: 'file?name=[name].[ext]'
       },
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loaders: [
-          'react-hot',
-          'babel-loader'
-        ]
-      },
-      {
         test: /\.png$/,
         loader: 'url-loader?limit=100000'
       },

@@ -4,10 +4,16 @@ import getHtmlPlugins from './getHtmlPlugins'
 
 export default {
   ...baseConfig,
+  dev: 'source-map',
   module: {
     ...baseConfig.module,
     loaders: [
       ...baseConfig.module.loaders,
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
       {
         test: /\.css$/,
         loaders: [
@@ -26,12 +32,19 @@ export default {
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        screw_ie8: true,
-        warnings: false
-      },
-      comments: false
+        compress: {
+            screw_ie8: true, // React doesn't support IE8
+            warnings: false
+        },
+        mangle: {
+            screw_ie8: true
+        },
+        output: {
+            comments: false,
+            screw_ie8: true
+        }
     }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
     ...getHtmlPlugins(true)
   ]
