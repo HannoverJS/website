@@ -5,14 +5,12 @@ import postcssImportUrl from 'postcss-import-url'
 import postcssCustomProperties from 'postcss-custom-properties'
 
 export default {
-  dev: 'cheap-module-source-map',
-  context: path.join(__dirname, './src'),
-  entry: {
-    js: './index.js',
-    html: './index.html'
-  },
+  entry: [
+    'whatwg-fetch',
+    './src/index.js'
+  ],
   output: {
-    path: path.join(__dirname, './dist'),
+    path: path.join(__dirname, '../build'),
     filename: 'bundle.js'
   },
   module: {
@@ -44,7 +42,7 @@ export default {
     ]
   },
   resolve: {
-    extensions: ['', '.js']
+    extensions: ['', '.js', '.json']
   },
   postcss: [
     autoprefixer,

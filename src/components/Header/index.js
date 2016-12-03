@@ -3,8 +3,7 @@ import Logo from '../Logo'
 import Appell from '../Appell'
 import TextHighlight from '../TextHighlight'
 import Button from '../Button'
-import fetch from '../../services/fetch'
-import { API } from '../../constants/config'
+import { api } from '../../../config'
 import styles from './styles.css'
 
 export default class Header extends Component {
@@ -21,7 +20,8 @@ export default class Header extends Component {
   }
 
   componentDidMount() {
-    fetch(API.upcomingMeetups)
+    fetch(`${api.baseUrl}/meetups`)
+      .then(res => res.json())
       .then(res => {
         const {
           time,

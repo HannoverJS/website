@@ -1,5 +1,6 @@
 import webpack from 'webpack'
-import baseConfig from './webpack.config.base'
+import baseConfig from './base'
+import getHtmlPlugins from './getHtmlPlugins'
 
 export default {
   ...baseConfig,
@@ -31,6 +32,7 @@ export default {
       },
       comments: false
     }),
-    new webpack.optimize.DedupePlugin()
+    new webpack.optimize.DedupePlugin(),
+    ...getHtmlPlugins(true)
   ]
 }

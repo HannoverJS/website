@@ -1,13 +1,12 @@
 /* eslint-disable max-len */
 
 import webpack from 'webpack'
-import baseConfig from './webpack.config.base'
+import baseConfig from './base'
+import getHtmlPlugins from './getHtmlPlugins'
 
 export default {
   ...baseConfig,
-  entry: {
-    ...baseConfig.entry
-  },
+  dev: 'eval',
   module: {
     ...baseConfig.module,
     loaders: [
@@ -27,7 +26,8 @@ export default {
       'process.env': {
         NODE_ENV: JSON.stringify('development')
       }
-    })
+    }),
+    ...getHtmlPlugins()
   ],
   devServer: {
     host: '0.0.0.0',

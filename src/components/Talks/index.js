@@ -4,8 +4,7 @@ import Section from '../Section'
 import Avatar from '../Avatar'
 import Button from '../Button'
 import Link from '../Link'
-import fetch from '../../services/fetch'
-import { API } from '../../constants/config'
+import { api } from '../../../config'
 import styles from './styles.css'
 
 export default class Talks extends Component {
@@ -27,7 +26,8 @@ export default class Talks extends Component {
   }
 
   componentDidMount() {
-    fetch(API.upcomingTalks)
+    fetch(`${api.baseUrl}/talks`)
+      .then(res => res.json())
       .then(res => {
         const talks = res
           .filter(talk =>
@@ -69,7 +69,7 @@ export default class Talks extends Component {
         <p className={styles.note}>
           Do you need a talk idea?<br />
           We got you covered,{' '}
-          <Link href="https://github.com/HannoverJS/talks#submitting-a-talk" gray>
+          <Link href="https://github.com/HannoverJS/talks#submitting-a-talk" title="Submit a Talk" gray>
             click me
           </Link>
           !

@@ -6,6 +6,7 @@ import LoadingSpinner from '../LoadingSpinner'
 import Section from '../Section'
 import Team from '../Team'
 import JoinUs from '../JoinUs'
+import { description } from '../../../config'
 import './styles.css'
 
 export default class App extends Component {
@@ -21,12 +22,7 @@ export default class App extends Component {
       <div>
         <Section
           title="What is this all about?"
-          text={
-            'HannoverJS is a usergroup focused on JavaScript and related topics. ' +
-            'The idea has gained great interest around Lower-Saxony\'s JavaScript folks. ' +
-            'We meet regularly on the 4th Thursday of every month at 7pm at NewStore, ' +
-            'Bödekerstraße 56 in Hannover.'
-          }
+          text={description}
         />
         <Team />
         <JoinUs />
