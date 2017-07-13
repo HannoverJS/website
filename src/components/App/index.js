@@ -4,7 +4,7 @@ import Container from '../Container'
 import Talks from '../Talks'
 import LoadingSpinner from '../LoadingSpinner'
 import Section from '../Section'
-import Team from '../Team'
+import Organizers from '../Organizers'
 import JoinUs from '../JoinUs'
 import { description } from '../../../config'
 import './styles.css'
@@ -13,29 +13,44 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      loading: true
+      headerLoaded: false,
+      talksLoaded: false,
+      organizersLoaded: false
     }
   }
 
   renderContent() {
     return (
       <div>
-        <Section
-          title="What is this all about?"
-          text={description}
-        />
-        <Team />
-        <JoinUs />
+
       </div>
     )
   }
 
   render() {
+    const { headerLoaded, talksLoaded, organizersLoaded } = this.state
+
+    const loaded = !headerLoaded && !talksLoaded && !organizersLoaded
+
     return (
       <Container>
-        <Header />
-        <Talks onLoaded={() => this.setState({ loading: false })} />
-        {this.state.loading ? <LoadingSpinner /> : this.renderContent()}
+        <Header onLoaded={() => this.setState({ headerLoaded: true })} />
+        {loaded && <LoadingSpinner />}
+        <Talks onLoaded={() => this.setState({ talksLoaded: true })} />
+        {!loaded
+          ? (
+            <Section
+              title="What is this all about?"
+              text={description}
+            />
+          )
+          : null
+        }
+        <Organizers onLoaded={() => this.setState({ organizersLoaded: true })} />
+        {!loaded
+          ? <JoinUs />
+          : null
+        }
       </Container>
     )
   }

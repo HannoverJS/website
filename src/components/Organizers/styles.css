@@ -1,6 +1,6 @@
 @import '../variables.css';
 
-.member {
+.organizer {
   flex: 1;
   margin-top: 8px;
   font-size: 14px;
@@ -10,7 +10,7 @@
 }
 
 @media (max-width: 767px) {
-  .member {
+  .organizer {
     margin-bottom: 20px;
     flex: 50%;
   }

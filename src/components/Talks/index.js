@@ -4,6 +4,7 @@ import Section from '../Section'
 import Avatar from '../Avatar'
 import Button from '../Button'
 import Link from '../Link'
+import TwitterLink from '../TwitterLink'
 import { api } from '../../../config'
 import styles from './styles.css'
 
@@ -28,29 +29,12 @@ export default class Talks extends Component {
   componentDidMount() {
     fetch(`${api.baseUrl}/talks`)
       .then(res => res.json())
-      .then(res => {
-        const talks = res
-          .filter(talk =>
-            talk.milestone && new Date(talk.milestone.due_on).valueOf() > new Date().valueOf()
-          )
-          .map(talk => {
-            const { title, body, user: { login, avatar_url } } = talk
-            return {
-              title,
-              description: body,
-              speaker: {
-                name: login,
-                avatar: avatar_url
-              }
-            }
-          })
-        this.setState({ talks, loading: false })
-        this.props.onLoaded()
+      .then(talks => {
+        this.setState({ talks: talks.slice(0, 2), loading: false }, this.props.onLoaded)
       })
       .catch((e) => {
         console.log(e) // eslint-disable-line no-console
-        this.setState({ loading: false, error: true })
-        this.props.onLoaded()
+        this.setState({ loading: false, error: true }, this.props.onLoaded)
       })
   }
 
@@ -80,14 +64,16 @@ export default class Talks extends Component {
 
   renderTalks() {
     const talks = this.state.talks.map((talk, i) => {
-      const { title, description, speaker: { name, avatar } } = talk
+      const { title, description, speaker: { name, avatar_url: avatarUrl } } = talk
       return (
         <li className={styles.talk} key={i}>
           <h3 className={styles.title}>
             {title}
           </h3>
-          <Avatar className={styles.avatar} src={avatar} alt={name} />
-          <Markdown className={styles.description} source={description} />
+          <Avatar className={styles.avatar} src={avatarUrl} alt={name} />
+          <p className={styles.description}>
+            {description}
+          </p>
         </li>
       )
     })

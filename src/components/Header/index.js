@@ -13,30 +13,22 @@ export default class Header extends Component {
       loading: true,
       error: false,
       date: null,
-      link: null,
-      location: null,
-      street: null
+      meetupUrl: null
     }
   }
 
   componentDidMount() {
-    fetch(`${api.baseUrl}/meetups`)
+    fetch(`${api.baseUrl}/events`)
       .then(res => res.json())
       .then(res => {
         const {
-          time,
-          link,
-          venue: {
-            address_1,
-            name
-          }
+          date,
+          meetup_url: meetupUrl
         } = res[0]
         this.setState({
           loading: false,
-          date: time,
-          link,
-          location: name,
-          street: address_1
+          date,
+          meetupUrl
         })
       })
     .catch((e) => {
@@ -63,7 +55,7 @@ export default class Header extends Component {
 
   renderButton() {
     return (
-      <Button className={styles.button} href={this.state.link} large>
+      <Button className={styles.button} href={this.state.meetupUrl} large>
         RSVP & Join us on Meetup
       </Button>
     )

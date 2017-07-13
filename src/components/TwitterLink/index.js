@@ -4,7 +4,7 @@ import Link from '../Link'
 export default function TwitterLink({ handle }) {
   return (
     <Link target="_blank" href={`http://twitter.com/${handle}`} title={`${handle} on Twitter`}>
-      {`@${handle}`}
+      {handle}
     </Link>
   )
 }

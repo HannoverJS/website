@@ -53,6 +53,7 @@
 .description h5,
 .description h6 {
   margin: 0;
+  margin-top: 20px;
   font-size: 14px;
   line-height: 21px;
 }
@@ -73,11 +74,6 @@
 .description h6 a:hover,
 .description h6 a:focus {
   opacity: 0.6;
-}
-
-.description p {
-  margin: 0;
-  margin-top: 20px;
 }
 
 .note {
