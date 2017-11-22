@@ -6,6 +6,6 @@
   },
   "appMountId": "root",
   "api": {
-    "baseUrl": "https://hannoverjs-api.now.sh"
+    "baseUrl": "https://api.hannoverjs.de"
   }
 }

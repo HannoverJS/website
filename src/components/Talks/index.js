@@ -64,13 +64,32 @@ export default class Talks extends Component {
 
   renderTalks() {
     const talks = this.state.talks.map((talk, i) => {
-      const { title, description, speaker: { name, avatar_url: avatarUrl } } = talk
+      const {
+        title,
+        description,
+        speaker: {
+          name,
+          avatar_url: avatarUrl,
+          occupation,
+          twitter,
+          twitter_url: twitterUrl
+        }
+      } = talk
       return (
         <li className={styles.talk} key={i}>
           <h3 className={styles.title}>
             {title}
           </h3>
           <Avatar className={styles.avatar} src={avatarUrl} alt={name} />
+          <p className={styles.speaker}>
+            <span className={styles.name}>
+              {name}
+            </span>
+            <br />
+            {occupation}
+            <br />
+            <TwitterLink handle={twitter} gray />
+          </p>
           <p className={styles.description}>
             {description}
           </p>

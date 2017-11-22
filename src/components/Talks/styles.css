@@ -44,6 +44,14 @@
   margin-top: 20px;
 }
 
+.speaker {
+  font-size: 14px;
+}
+
+.name {
+  font-weight: 400;
+}
+
 .description {
   margin-top: 10px;
   font-size: 16px;

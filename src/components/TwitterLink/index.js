@@ -1,9 +1,14 @@
 import React, { PropTypes } from 'react'
 import Link from '../Link'
 
-export default function TwitterLink({ handle }) {
+export default function TwitterLink({ handle, ...props }) {
   return (
-    <Link target="_blank" href={`http://twitter.com/${handle}`} title={`${handle} on Twitter`}>
+    <Link
+      {...props}
+      target="_blank"
+      href={`http://twitter.com/${handle}`}
+      title={`${handle} on Twitter`}
+    >
       {handle}
     </Link>
   )
