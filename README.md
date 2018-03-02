@@ -1,36 +1,19 @@
 # HannoverJS Website
 
-> The official HannoverJS Website
+> The HannoverJS Website
+
+Powered by [Next.js](https://github.com/zeit/next.js/).
 
 ## Development
 
-Clone/fork this repository and install the npm dependencies:
+1. Clone or fork this repository and install the npm dependencies:
 ```
-$ npm install
-```
-
-### Commands
-
-Start development server on `localhost:3000`:
-
-```
-$ npm start
+yarn
 ```
 
-Lint `.js` files:
-
+1. Start a local development server with live reloading:
 ```
-$ npm run lint
-```
-
-Generate production build in a `/build` folder:
-
-```
-$ npm run build
+yarn dev
 ```
 
-Generate production build and deploy on `gh-pages` branch:
-
-```
-$ npm run deploy
-```
+1. Open `http://localhost:3000` in your browser.
