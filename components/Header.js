@@ -5,7 +5,7 @@ import Underline from './Underline'
 import { spacings } from './styles'
 
 export default ({
-  nextMeetup: { date, meetupUrl = 'http://www.meetup.com/HannoverJS/' } = {}
+  nextMeetup: { date, meetupUrl = 'https://meetup.com/Hannover-Gophers/' } = {}
 }) => (
   <div className="root">
     <div className="logo">
@@ -14,7 +14,7 @@ export default ({
     <h1 className="claim">
       Hannover's Monthly
       <br />
-      JavaScript Meetup
+      Golang Meetup
     </h1>
     {Boolean(date) && (
       <h2>
