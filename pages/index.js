@@ -9,12 +9,15 @@ import Organizers from '../components/Organizers'
 import Community from '../components/Community'
 import Location from '../components/Location'
 
-const fetchData = async (endpoint, baseUrl = 'https://api.hannoverjs.de/') => {
+const fetchData = async (
+  endpoint,
+  baseUrl = 'https://hannovergophers-api-vdpbkgocjt.now.sh/'
+) => {
   const res = await fetch(`${baseUrl}${endpoint}`)
   return camelcaseKeys(await res.json(), { deep: true })
 }
 
-const Index = ({ nextMeetup, talks, organizers, slack }) => (
+const Index = ({ nextMeetup, talks, organizers, slack, venue }) => (
   <React.Fragment>
     <div>
       <Head />
@@ -24,7 +27,7 @@ const Index = ({ nextMeetup, talks, organizers, slack }) => (
       </Section>
       <Section
         title="What Is This All About?"
-        text="HannoverJS is a usergroup focused on JavaScript and related topics. The idea has gained great interest around Lower-Saxony's JavaScript folks. We meet regularly on the 4th Thursday of every month at 6.30pm at NewStore, Bödekerstraße 56 in Hannover."
+        text="Hannover Gophers is a usergroup focused on Golang and related topics. The idea has gained great interest around Lower-Saxony's Golang folks. We meet regularly every month at 6.30pm at NewStore, Bödekerstraße 56 in Hannover. Find the next date on our meetup page."
       />
       <Section title="Who Is Behind This?">
         <Organizers organizers={organizers} />
@@ -37,7 +40,7 @@ const Index = ({ nextMeetup, talks, organizers, slack }) => (
           margin-left: auto;
           margin-right: auto;
           padding: 0 20px;
-          background: url(/static/background.jpg) center top no-repeat;
+          background: url(/static/backgroundC1.jpg) center top no-repeat;
         }
 
         @media (max-width: 767px) {
@@ -54,7 +57,8 @@ const Index = ({ nextMeetup, talks, organizers, slack }) => (
       `}</style>
     </div>
     <Location
-      location={nextMeetup.venue}
+      // remove later...
+      location={venue} //{nextMeetup.venue}
       googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
       loadingElement={null}
     />
@@ -66,12 +70,25 @@ Index.getInitialProps = async () => {
   const talks = await fetchData('talks')
   const organizers = await fetchData('organizers')
   const slack = await fetchData('data', 'https://slack.hannoverjs.de/')
+  // remove later...
+  const venue = {
+    name: 'Hannover Gophers',
+    lat: 52.3844108581543,
+    lon: 9.753049850463867,
+    city: 'Hannover',
+    country: 'de',
+    localized_country_name: 'Germany',
+    how_to_find_us:
+      'Ring the bell "HannoverJS", you can find us on the 2nd floor.'
+  }
 
   return {
     nextMeetup,
     talks,
     organizers,
-    slack
+    slack,
+    // remove later...
+    venue
   }
 }
 

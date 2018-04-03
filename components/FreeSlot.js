@@ -7,7 +7,7 @@ export default () => (
     <p>This slot could be yours!</p>
     <div>
       <Button
-        href="https://github.com/HannoverJS/talks#submitting-a-talk"
+        href="https://github.com/HannoverGophers/talks#submitting-a-talk"
         inverted
       >
         Submit a Talk
@@ -20,7 +20,7 @@ export default () => (
     </p>
     <div>
       <Button
-        href="https://github.com/HannoverJS/talks/issues?q=is%3Aissue+is%3Aopen+label%3A%22Talk+Idea%22"
+        href="https://github.com/HannoverGophers/talks/issues?q=is%3Aissue+is%3Aopen+label%3A%22Talk+Idea%22"
         inverted
       >
         View Talk Ideas

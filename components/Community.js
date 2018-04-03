@@ -9,12 +9,12 @@ export default ({ slack }) => (
       <li>
         <TwitterLogo />
         <h3>Twitter</h3>
-        <Button href="https://twitter.com/hannoverjs">Follow us</Button>
+        <Button href="https://twitter.com/HannoverGophers">Follow us</Button>
       </li>
       <li>
         <SlackLogo />
         <h3>Slack</h3>
-        <Button href="https://slack.hannoverjs.de">Join us</Button>
+        <Button href="https://hannover-gophers.slack.com">Join us</Button>
       </li>
       <style jsx>{`
         ul {
