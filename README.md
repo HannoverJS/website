@@ -2,7 +2,7 @@
 
 > The HannoverJS Website
 
-Powered by [Next.js](https://github.com/zeit/next.js/).
+Based on [Create React App](https://github.com/facebook/create-react-app).
 
 ## Development
 
@@ -13,7 +13,7 @@ yarn
 
 1. Start a local development server with live reloading:
 ```
-yarn dev
+yarn start
 ```
 
 1. Open `http://localhost:3000` in your browser.

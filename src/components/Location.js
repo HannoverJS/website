@@ -6,9 +6,9 @@ import {
   Marker
 } from 'react-google-maps'
 import { compose, withProps } from 'recompose'
-import { colors } from './styles'
+import { colors } from '../styles'
 
-const API_KEY = 'AIzaSyBWvxIB7Y1deoneeayLEEOpESijWy64ElA'
+const { REACT_APP_GOOGLE_MAPS_API_KEY } = process.env
 
 const Location = ({ location: { lat, lon: lng } }) => (
   <GoogleMap
@@ -22,7 +22,7 @@ const Location = ({ location: { lat, lon: lng } }) => (
 
 export default compose(
   withProps({
-    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&v=3.exp&libraries=geometry,drawing,places`,
+    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${REACT_APP_GOOGLE_MAPS_API_KEY}&v=3.exp&libraries=geometry,drawing,places`,
     loadingElement: <div style={{ height: '100%' }} />,
     containerElement: <div style={{ height: 600 }} />,
     mapElement: <div style={{ height: '100%' }} />

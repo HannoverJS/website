@@ -1,10 +1,49 @@
 import React from 'react'
 import Markdown from 'react-markdown'
-import Button from './Button'
+import styled from 'styled-components'
 import Avatar from './Avatar'
 import Link from './Link'
 import FreeSlot from './FreeSlot'
-import { colors, spacings } from './styles'
+import { colors, spacings } from '../styles'
+
+const Container = styled.div`
+  display: flex;
+  padding: 0;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+`
+
+const Slot = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: ${colors.yellow};
+  color: ${colors.gray};
+  padding: ${spacings.base};
+  text-align: ${props => props.freeSlot && 'center'};
+  justify-content: ${props => props.freeSlot && 'center'};
+
+  &:last-child {
+    border-top: 1px solid ${colors.gray};
+  }
+
+  @media (min-width: 787px) {
+    &:last-child {
+      border-top: 0;
+      border-left: 1px solid ${colors.gray};
+    }
+  }
+`
+
+const SpeakerName = styled.h4`
+  margin: 0;
+`
+
+const SpeakerDetails = styled.p`
+  margin: 0;
+`
 
 export default ({ talks = [], numSlots = 2 }) => {
   const slots = talks.map(
@@ -19,20 +58,14 @@ export default ({ talks = [], numSlots = 2 }) => {
           <Avatar src={avatarUrl} alt={name} />
         </div>
         <React.Fragment>
-          <h4>{name}</h4>
-          <p>
+          <SpeakerName>{name}</SpeakerName>
+          <SpeakerDetails>
             {occupation}
             <br />
             <Link href={socialUrl} gray>
               {socialName}
             </Link>
-          </p>
-          <style jsx>{`
-            h4,
-            p {
-              margin: 0;
-            }
-          `}</style>
+          </SpeakerDetails>
         </React.Fragment>
         <Markdown
           source={description}
@@ -67,49 +100,12 @@ export default ({ talks = [], numSlots = 2 }) => {
   }
 
   return (
-    <div className="root">
+    <Container>
       {slots.map((slot, i) => (
-        <div key={i} className={`slot ${slot.freeSlot && 'freeSlot'}`}>
+        <Slot key={i} freeSlot={slot.freeSlot}>
           {slot.freeSlot ? slot.component : slot}
-        </div>
+        </Slot>
       ))}
-      <style jsx>{`
-        .root {
-          display: flex;
-          padding: 0;
-        }
-
-        .slot {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          background: ${colors.yellow};
-          color: ${colors.gray};
-          padding: ${spacings.base};
-        }
-
-        .slot:last-child {
-          border-top: 1px solid ${colors.gray};
-        }
-
-        .freeSlot {
-          text-align: center;
-          justify-content: center;
-        }
-
-        @media (max-width: 767px) {
-          .root {
-            flex-direction: column;
-          }
-        }
-
-        @media (min-width: 787px) {
-          .slot:last-child {
-            border-top: 0;
-            border-left: 1px solid ${colors.gray};
-          }
-        }
-      `}</style>
-    </div>
+    </Container>
   )
 }
