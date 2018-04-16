@@ -11,6 +11,7 @@
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-google-maps": "^9.4.5",
+    "react-lazy-load": "^3.0.13",
     "react-markdown": "^3.2.2",
     "react-scripts": "^1.1.4",
     "recompose": "^0.26.0",

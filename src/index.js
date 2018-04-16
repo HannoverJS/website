@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import styled, { injectGlobal } from 'styled-components'
 import { camelizeKeys } from 'humps'
+import LazyLoad from 'react-lazy-load'
 import backgroundImage from './images/background.jpg'
 import Header from './components/Header'
 import NextMeetup from './components/NextMeetup'
@@ -137,11 +138,13 @@ class App extends React.Component {
           </Container>
         </FadeIn>
         {!loading && (
-          <Location
-            location={nextMeetup.venue}
-            googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
-            loadingElement={null}
-          />
+          <LazyLoad height={600}>
+            <Location
+              location={nextMeetup.venue}
+              googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+              loadingElement={null}
+            />
+          </LazyLoad>
         )}
       </React.Fragment>
     )

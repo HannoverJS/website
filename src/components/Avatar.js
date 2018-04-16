@@ -1,3 +1,5 @@
+import React from 'react'
+import LazyLoad from 'react-lazy-load'
 import styled from 'styled-components'
 
 const Image = styled.img`
@@ -6,4 +8,8 @@ const Image = styled.img`
   border-radius: 50%;
 `
 
-export default Image
+export default props => (
+  <LazyLoad width={100} height={100}>
+    <Image {...props} />
+  </LazyLoad>
+)
