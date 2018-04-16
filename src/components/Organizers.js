@@ -16,7 +16,6 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   flex: 1;
-  font-size: 14px;
   display: flex;
   align-items: center;
   flex-direction: column;

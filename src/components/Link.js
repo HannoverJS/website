@@ -7,4 +7,4 @@ const Link = styled.a`
   text-decoration: ${props => props.gray && 'underline'};
 `
 
-export default props => <Link target="_blank" {...props} />
+export default props => <Link target="_blank" rel="noopener" {...props} />
