@@ -9,10 +9,7 @@ import Organizers from '../components/Organizers'
 import Community from '../components/Community'
 import Location from '../components/Location'
 
-const fetchData = async (
-  endpoint,
-  baseUrl = 'https://hannovergophers-api-vdpbkgocjt.now.sh/'
-) => {
+const fetchData = async (endpoint, baseUrl = 'https://api.golang.wtf/') => {
   const res = await fetch(`${baseUrl}${endpoint}`)
   return camelcaseKeys(await res.json(), { deep: true })
 }
@@ -27,7 +24,7 @@ const Index = ({ nextMeetup, talks, organizers, slack, venue }) => (
       </Section>
       <Section
         title="What Is This All About?"
-        text="Hannover Gophers is a usergroup focused on Golang and related topics. The idea has gained great interest around Lower-Saxony's Golang folks. We meet regularly every month at 6.30pm at NewStore, Bödekerstraße 56 in Hannover. Find the next date on our meetup page."
+        text="Hannover Gophers is a usergroup focused on Golang and related topics. The idea has gained great interest around Lower-Saxony's Golang folks. We meet regularly every month at 6.30pm at NewStore, Bödekerstraße 56 in Hannover."
       />
       <Section title="Who Is Behind This?">
         <Organizers organizers={organizers} />
@@ -69,7 +66,7 @@ Index.getInitialProps = async () => {
   const [nextMeetup] = await fetchData('events')
   const talks = await fetchData('talks')
   const organizers = await fetchData('organizers')
-  const slack = await fetchData('data', 'https://slack.hannoverjs.de/')
+  // const slack = await fetchData('data', 'https://hannover-gophers.slack.com') // evtl. for fetching how many users are active
   // remove later...
   const venue = {
     name: 'Hannover Gophers',
@@ -86,7 +83,7 @@ Index.getInitialProps = async () => {
     nextMeetup,
     talks,
     organizers,
-    slack,
+    //slack,
     // remove later...
     venue
   }

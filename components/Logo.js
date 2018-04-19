@@ -1,11 +1,7 @@
 import React from 'react'
 
 export default () => (
-  <img
-    src="https://pbs.twimg.com/profile_images/951429007530176512/n1LSNa2Y_400x400.jpg"
-    width="160px"
-    height="160px"
-  />
+  <img src="../static/logo.png" width="160px" height="160px" />
   // <svg viewBox="0 0 504.7 504.7" width="160px" height="160px">
   //   <rect width="504.7" height="504.5" fill="#FEDF19" />
   //   <path

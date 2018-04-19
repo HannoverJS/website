@@ -1,0 +1,13 @@
+{
+    "name": "hannovergophers",
+    "scale": {
+        "bru1": {
+            "min": 1,
+            "max": 2
+        }
+    },
+    "alias": [
+        "www.golang.wtf",
+        "hannovergophers.golang.wtf"
+    ]
+}
