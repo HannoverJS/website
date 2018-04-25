@@ -67,6 +67,10 @@ injectGlobal`
   a {
     text-decoration: none;
   }
+
+  strong {
+    font-weight: 400;
+  }
 `
 
 const Container = styled.div`

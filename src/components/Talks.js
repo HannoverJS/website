@@ -46,6 +46,12 @@ const SpeakerDetails = styled.p`
   margin: 0;
 `
 
+const TalkDescriptionList = styled.ul`
+  text-align: left;
+  margin: 0 auto;
+  width: 55%;
+`
+
 export default ({ talks = [], numSlots = 2 }) => {
   const slots = talks.map(
     ({
@@ -69,23 +75,8 @@ export default ({ talks = [], numSlots = 2 }) => {
         <Markdown
           source={description}
           renderers={{
-            link: ({ children, ...props }) => (
-              <Link {...props} gray>
-                {children}
-              </Link>
-            ),
-            list: ({ children, ...props }) => (
-              <ul>
-                {children}
-                <style jsx>{`
-                  ul {
-                    text-align: left;
-                    margin: 0 auto;
-                    width: 55%;
-                  }
-                `}</style>
-              </ul>
-            )
+            link: props => <Link {...props} gray />,
+            list: TalkDescriptionList
           }}
         />
       </React.Fragment>
