@@ -24,6 +24,7 @@ const Slot = styled.div`
   padding: ${spacings.base};
   text-align: ${props => props.freeSlot && 'center'};
   justify-content: ${props => props.freeSlot && 'center'};
+  align-items: center;
 
   &:last-child {
     border-top: 1px solid ${colors.gray};
@@ -54,9 +55,7 @@ export default ({ talks = [], numSlots = 2 }) => {
     }) => (
       <React.Fragment>
         <h3>{title}</h3>
-        <div>
-          <Avatar src={avatarUrl} alt={name} />
-        </div>
+        <Avatar src={avatarUrl} alt={name} />
         <React.Fragment>
           <SpeakerName>{name}</SpeakerName>
           <SpeakerDetails>
