@@ -1,0 +1,325 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+    margin: 0;
+    background: #333;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5 {
+    margin-top: 0;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 44px;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+strong {
+    font-weight: 400;
+}
+
+/* BASE */
+
+/*
+export const colors = {
+    yellow: '#FEDF19',
+    gray: '#333',
+    white: '#fff'
+}
+
+export const spacings = {
+    base: '40px',
+    small: '10px'
+}
+*/
+
+/* BASE */
+
+.container {
+    min-height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    background: url("./images/background_1.jpg") center top no-repeat;
+}
+
+@media (max-width: 767px) {
+    .container {
+        background-position: 75% 0%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1200px;
+    }
+}
+
+
+u, .underlined {
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #fedf19;
+}
+
+/* BUTTON */
+
+.button {
+    padding: 7px 11px;
+    color: #333333;
+    background: #fedf19;
+    border: 1px solid #fedf19;
+    transition: all 0.25s ease;
+    /* font-size: ${props => props.large && '20px'}; */
+}
+
+.button.large {
+    font-size: 20px;
+}
+
+.button:hover, .button:focus {
+    color: #ffffff;
+    background: transparent;
+}
+
+.button.inverted {
+    background: transparent;
+    border: 1px solid #333333;
+}
+
+.button.inverted:hover, .button.inverted:focus {
+    background: #333333;
+}
+
+/* LINK */
+
+a {
+    color: #fedf19;
+}
+
+/* SECTION */
+
+.section {
+    text-align: center;
+    margin-bottom: 40px;
+    /* margin-bottom: ${props => props.marginBottom && spacings.base}; */
+}
+
+.section h2 {
+    font-weight: normal;
+}
+
+.section > p {
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+
+/* HEADER */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header .claim {
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .header .logo-container {
+        margin-bottom: 40px;
+    }
+}
+
+@media (min-width: 768px) {
+    .header .logo-container {
+        align-self: flex-start;
+    }
+}
+
+
+/* NEXT MEETUP */
+
+.next-meetup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 64px;
+}
+
+.next-meetup h2 {
+    margin-bottom: 12px;
+}
+
+/* TALKS */
+
+.talks {
+    display: flex;
+    padding: 0;
+}
+
+@media (max-width: 767px) {
+    .talks {
+        flex-direction: column;
+    }
+}
+
+.slot {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fedf19;
+    color: #333333;
+    padding: 40px;
+    align-items: center;
+}
+
+.slot.free {
+    text-align: center;
+    justify-content: center;
+}
+
+.slot:last-child {
+    border-top: 1px solid #333333;
+}
+
+
+@media (min-width: 787px) {
+    .slot:last-child {
+        border-top: 0;
+        border-left: 1px solid #333333;
+    }
+}
+
+
+.github-avatar {
+    height: 100px;
+    width: 100px;
+}
+
+.github-avatar img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.speaker-name {
+    margin: 0;
+}
+
+.speaker-details {
+    margin: 0;
+}
+
+
+/* ORGANIZERS */
+
+.organizers {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+
+}
+
+@media (max-width: 767px) {
+    .organizers {
+        flex-direction: column;
+    }
+}
+
+.organizers li {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.organizers h5 {
+    margin: 0;
+}
+
+.organizers p {
+    margin: 0;
+    margin-top: 5px;
+}
+
+.organizer-avatar {
+    height: 100px;
+    width: 100px;
+}
+
+.organizer-avatar img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+@media (max-width: 767px) {
+    .organizers li {
+        margin-bottom: 40px;
+    }
+}
+
+@media (min-width: 768px) {
+    .organizers li {
+        padding: 0 10px;
+    }
+}
+
+/* COMMUNITY */
+
+.community {
+    display: flex;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    width: 300px;
+}
+
+.community li {
+    flex: 1;
+} 
+
+/* MAP */
+
+.map-wrapper {
+    height: 600px;
+}
+
+.map-frame {
+    width: 100%;
+    height: 100%;
+}

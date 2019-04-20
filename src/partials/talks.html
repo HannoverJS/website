@@ -1,0 +1,34 @@
+<div class="section">
+    <h2><u>The Talks</u></h2>
+    <div class="talks">
+    {{#talks}}
+        {{#title}}
+        <div class="slot">
+            <h3>{{title}}</h3>
+            {{#../speaker}}
+            <div class="github-avatar"><img src="{{avatarUrl}}" alt="{{name}}" /></div>
+            <h4 class="speaker-name">{{name}}</h4>
+            <p class="spaker-details">
+                {{occupation}}
+                {{#socialName}}
+                <a target="_blank" href="{{..socialUrl}}">{{.}}</a>
+                {{/socialName}}
+            </p>
+            {{/../speaker}}
+            <div>
+                {{{../description}}}
+            </div>
+        </div>
+        {{/title}}
+        {{^title}}
+        <div class="slot free">
+            <h3>Free Slot</h3>
+            <p>This slot could be yours!</p>
+            <div><a class="button inverted" target="_blank" href="https://github.com/HannoverJS/talks#submitting-a-talk">Submit a Talk</a></div>
+            <p>Need an idea for a talk?<br>We've got you covered!</p>
+            <div><a class="button inverted" target="_blank" href="https://github.com/HannoverJS/talks/issues?q=is%3Aissue+is%3Aopen+label%3A%22Talk+Idea%22">View Talk Ideas</a></div>
+        </div>
+        {{/title}}
+    {{/talks}}
+    </div>
+</div>
