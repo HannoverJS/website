@@ -1,12 +1,15 @@
-<div class="section">
-    <h2><u>Who Is Behind This?</u></h2>
-    <ul class="organizers">
+<div class="organizers">
+    <h2><u>Who's behind this?</u></h2>
+    <ul class="organizers-list">
     {{#organizers}}
         <li>
             <div class="organizer-avatar"><img src="{{avatar}}" alt="{{name}}"></div>
-            <h5>{{name}}</h5>
-            <a target="_blank" rel="noopener" href="https://twitter.com/{{handle}}">@{{handle}}</a>
-            <p>{{description}}</p>
+            <div class="organizer-info">
+                <h5>{{name}}</h5>
+                {{#twitter}}
+                <a target="_blank" rel="noopener" href="https://twitter.com/{{ . }}">@{{ . }}</a>
+                {{/twitter}}
+            </div>
         </li>
     {{/organizers}}
     </ul>

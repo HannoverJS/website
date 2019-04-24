@@ -1,32 +1,14 @@
-const twitter = require('./twitter')
-
-async function fetchOrganizers(twitterUsernames) {
-    let organizers = await twitter(
-        `users/lookup.json?screen_name=${twitterUsernames.join(',')}`
-    )
-
-    /* eslint-disable camelcase */
-    return organizers.map(
-        ({
-            name,
-            description,
-            profile_image_url,
-            profile_image_url_https,
-            screen_name
-        }) => ({
-            name,
-            description,
-            twitter: {
-                profile_image_url: profile_image_url.replace('_normal', ''),
-                profile_image_url_https: profile_image_url_https.replace('_normal', ''),
-                screen_name
-            }
-        })
-    )
-}
-
-module.exports = () =>
-        fetchOrganizers([
-            'RobinThrift',
-            'ChrisIncoqnito'
-        ])
+module.exports = [
+    {
+        name: "Robin Thrift",
+        avatar: "https://pbs.twimg.com/profile_images/992279427991007232/ktnjAJ5l.jpg",
+        twitter: "RobinThrift",
+        github: "RobinThrift"
+    },
+    {
+        name: "Chris Incoqnito",
+        avatar: "https://pbs.twimg.com/profile_images/1001114922779062272/PAzc990z.jpg",
+        twitter: "ChrisIncoqnito",
+        github: undefined
+    }
+]

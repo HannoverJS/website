@@ -4,18 +4,8 @@ const fetch = require('./fetch')
 const MEETUP_EVENTS =
   'https://api.meetup.com/hannoverjs/events?page=3&status=upcoming'
 
-const { MEETUP_TOKEN } = process.env
-
-if (!MEETUP_TOKEN) {
-  throw new TypeError(
-    `Expected 'process.env.MEETUP_TOKEN' to be set, got ${MEETUP_TOKEN}`
-  )
-}
-
 function events() {
-    return fetch(MEETUP_EVENTS, {
-        Authorization: `Bearer ${MEETUP_TOKEN}`
-    }).then(meetupEvents => {
+    return fetch(MEETUP_EVENTS).then(meetupEvents => {
         return meetupEvents.map(event => {
             let {
                 time,
