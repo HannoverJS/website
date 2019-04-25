@@ -29,7 +29,7 @@ function talks() {
       headers: {
           Authorization: `token ${process.env.GH_TOKEN}`
       }
-  }).then(issues => {
+    }).then(issues => {
         return camelizeKeys(issues)
             .filter(
                 ({ milestone }) =>
