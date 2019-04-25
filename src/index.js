@@ -9,66 +9,115 @@ const organizers = require("./organizers")
 const fetchEvents = require("./events")
 
 const OUTPUT_FILE = "./build/index.html"
+const OUTPUT_DIR  = "./build"
+const SRC_DIR  = "./src"
 const CSS_INPUT = "./src/styles.css"
 const CSS_OUTPUT = "./build/styles.css"
 
-async function copyFiles(pattern, destination) {
+async function copyFiles(pattern, destination, map = (c) => c) {
     let files = await glob(pattern)
     await Promise.all(files.map(async (f) => {
         let content = await fs.readFile(f, "utf8")
         let basename = path.basename(f)
         await fs.mkdir(destination, { recursive: true })
-        await fs.writeFile(path.join(destination, basename), content)
+        await fs.writeFile(path.join(destination, basename), map(content))
     }))
 }
 
 function copyCSS() {
-    return copyFiles("./src/*.css", "build")
+    const CleanCSS = require("clean-css")
+    let cleanCSS = new CleanCSS()
+    return copyFiles(`${SRC_DIR}/*.css`, OUTPUT_DIR, (c) => cleanCSS.minify(c).styles)
 }
 
-function copyAssets() {
-    return copyFiles("./src/images/*", "build/images")
+async function copyAssets() {
+    await copyFiles(`${SRC_DIR}/images/*`, `${OUTPUT_DIR}/images`)
+    return copyFiles(`${SRC_DIR}/assets/*`, OUTPUT_DIR)
 }
 
-async function main() {
+async function build() {
+    await fs.mkdir(OUTPUT_DIR, { recursive: true })
+
     let partials = await glob("./src/partials/*.html")
     await Promise.all(partials.map(async (p) => {
         let content = await fs.readFile(p, "utf8")
         handlebars.registerPartial(path.basename(p, ".html"), content)
     }))
 
-    let layout = handlebars.compile(await fs.readFile(`./src/partials/layout.html`, "utf8"))
+    let layout = handlebars.compile(await fs.readFile(`${SRC_DIR}/partials/layout.html`, "utf8"))
 
-    // let talks = await fetchTalks()
-    let talks = [
-        // {
-        //     title: "Snabbdom: A lightweight virtual DOM library",
-        //     description: "Snabbdom is a lightweight virtual DOM library which is used in frameworks like Vue.js and Cycle.js as the DOM renderer.\nBut with under 4KB size (gzipped+minified) and a highly modular structure, Snabbdom is also very useful for building small (and not so small) dynamic web UI components without committing to a framework.\nThe talk will demonstrate how Snabbdom works and how to build simple UI components with it \"functional style\".",
-        //     speaker: {
-        //         name: "Karol Wegner",
-        //         occupation: "Freelance full-stack developer",
-        //         avatarUrl: "https://avatars0.githubusercontent.com/u/14128442?s=180&v=4",
-        //         socialName: undefined,
-        //         socialUrl: undefined
-        //     }
-        // }
-    ]
-    // let next = (await fetchEvents())[0]
-    // next.date = new Date(next.date).toLocaleDateString('en-US', {
-    //     month: 'long',
-    //     day: 'numeric'
-    // })
+    let talks = await fetchTalks()
+    let next = (await fetchEvents())[0]
+    next.date = new Date(next.date).toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric'
+    })
 
     let data = {
-        next: { date: "May 28", meetupUrl: "" },
+        next,
         talks: (talks.length == 0) ? [{ title: undefined }] : talks,
         organizers
     }
 
-    await fs.writeFile(OUTPUT_FILE, layout(data))
+    let output = layout(data)
+
+    const htmlMinifier = require("html-minifier")
+    output = htmlMinifier.minify(output, {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true
+    })
+
+    await fs.writeFile(OUTPUT_FILE, output)
 
     await copyCSS()
     await copyAssets()
+}
+
+async function watch() {
+    await build()
+
+    require("fs").watch(SRC_DIR, { recursive: true }, () => {
+        build()
+    })
+
+    const bs = require("browser-sync").create();
+
+    bs.watch(`${OUTPUT_DIR}/**`).on("change", bs.reload);
+    bs.init({
+        server: OUTPUT_DIR
+    });
+}
+
+
+function clean() {
+    return new Promise((resolve, reject) => {
+        require("child_process").exec(`rm -rf ${OUTPUT_DIR}/*`, (err, _, stderr) => {
+            if (err) {
+                return reject(err)
+            }
+            if (stderr) {
+                return reject(stderr)
+            }
+        })
+    })
+}
+
+async function main() {
+    switch (process.argv[2]) {
+        case "build":
+            return build()
+            break;
+        case "watch":
+            return watch()
+            break;
+        case "clean":
+            return clean()
+            break;
+    }
 }
 
 main().catch(e => console.error(e))
