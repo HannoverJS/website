@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - "node"
+before_install:
+    - openssl enc -aes-256-cbc -S $enc_SALT -K $enc_KEY -iv $enc_IV -in travis_rsa.enc -out travis_rsa -d
+env:
+    global:
+        - SSH_KEY="travis_rsa"
+        - GIT_NAME="Travis CI"
+        - GIT_EMAIL="robinthrift@users.noreply.github.com"
+        - SOURCE_DIR="build"
+        - DEPLOY_BRANCH="static-rewrite"
+script:
+    - npm run build
+after_success:
+    - echo "hannoverjs.com" > ./src/CNAME
+    - ./deploy.sh
+notifications:
+    email:
+        on_failure: always

@@ -1,6 +1,6 @@
 # HannoverJS Website
 
-> The HannoverJS Website
+[![Build Status](https://travis-ci.org/HannoverJS/website.svg?branch=static-rewrite)](https://travis-ci.org/HannoverJS/website)
 
 ## Development
 
