@@ -25,7 +25,11 @@ function extractTalk(body) {
 }
 
 function talks() {
-    return fetch(GITHUB_ISSUES).then(issues => {
+    return fetch(GITHUB_ISSUES, {
+      headers: {
+          Authorization: `token ${process.env.GH_TOKEN}`
+      }
+  }).then(issues => {
         return camelizeKeys(issues)
             .filter(
                 ({ milestone }) =>
