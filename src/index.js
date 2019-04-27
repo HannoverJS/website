@@ -110,7 +110,10 @@ class App extends React.Component {
     })
   }
 
-  async fetchData(endpoint, baseUrl = 'https://api.hannoverjs.de/') {
+  async fetchData(
+    endpoint,
+    baseUrl = 'https://hannoverjs.de/.netlify/functions/'
+  ) {
     const res = await fetch(`${baseUrl}${endpoint}`)
     return camelizeKeys(await res.json(), { deep: true })
   }
