@@ -48,7 +48,7 @@ async function build() {
 
     let talks = await fetchTalks()
     let next = (await fetchEvents())[0]
-    next.date = new Date(next.date).toLocaleDateString('en-US', {
+    next.date = new Date(next.date).toLocaleDateString('de-DE', {
         month: 'long',
         day: 'numeric'
     })
