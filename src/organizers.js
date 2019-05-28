@@ -7,7 +7,7 @@ module.exports = [
     },
     {
         name: "Chris Incoqnito",
-        avatar: "https://pbs.twimg.com/profile_images/1001114922779062272/PAzc990z.jpg",
+        avatar: "https://pbs.twimg.com/profile_images/1124664773436674054/ONJDrz62_400x400.png",
         twitter: "ChrisIncoqnito",
         github: undefined
     }
