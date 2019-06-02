@@ -14,6 +14,14 @@ const SRC_DIR  = "./src"
 const CSS_INPUT = "./src/styles.css"
 const CSS_OUTPUT = "./build/styles.css"
 
+const LOG_ENABLED = true
+
+function log(msg, ...args) {
+    if (LOG_ENABLED) {
+        console.log(`[LOG] ${msg}`, ...args)
+    }
+}
+
 async function copyFiles(pattern, destination, map = (c) => c) {
     let files = await glob(pattern)
     await Promise.all(files.map(async (f) => {
@@ -25,33 +33,46 @@ async function copyFiles(pattern, destination, map = (c) => c) {
 }
 
 function copyCSS() {
+    log("Copying CSS...")
     const CleanCSS = require("clean-css")
     let cleanCSS = new CleanCSS()
     return copyFiles(`${SRC_DIR}/*.css`, OUTPUT_DIR, (c) => cleanCSS.minify(c).styles)
 }
 
 async function copyAssets() {
+    log("Copying assets...")
     await copyFiles(`${SRC_DIR}/images/*`, `${OUTPUT_DIR}/images`)
     return copyFiles(`${SRC_DIR}/assets/*`, OUTPUT_DIR)
 }
 
 async function build() {
+    log("Creating output directory '%s'", OUTPUT_DIR)
     await fs.mkdir(OUTPUT_DIR, { recursive: true })
 
+    log("Loading template partials...")
     let partials = await glob("./src/partials/*.html")
     await Promise.all(partials.map(async (p) => {
+        log("Loading partial '%s'...", p)
         let content = await fs.readFile(p, "utf8")
         handlebars.registerPartial(path.basename(p, ".html"), content)
+        log("Loaded partial '%s'", p)
     }))
 
+    log("Compiling layout template...")
     let layout = handlebars.compile(await fs.readFile(`${SRC_DIR}/partials/layout.html`, "utf8"))
+    log("Compiled layout template")
 
+    log("Fetching talks...")
     let talks = await fetchTalks()
+    log("Fetched talks")
+
+    log("Fetching next event...")
     let next = (await fetchEvents())[0]
     next.date = new Date(next.date).toLocaleDateString('en-GB', {
         month: 'long',
         day: 'numeric'
     })
+    log("Fetched next event")
 
     let data = {
         next,
@@ -59,8 +80,11 @@ async function build() {
         organizers
     }
 
+    log("Rendering output...")
     let output = layout(data)
+    log("Rendered output")
 
+    log("Minifying html output...")
     const htmlMinifier = require("html-minifier")
     output = htmlMinifier.minify(output, {
         collapseWhitespace: true,
@@ -70,7 +94,9 @@ async function build() {
         removeStyleLinkTypeAttributes: true,
         useShortDoctype: true
     })
+    log("Minifyed html output")
 
+    log("Writing to file '%s'", OUTPUT_FILE)
     await fs.writeFile(OUTPUT_FILE, output)
 
     await copyCSS()
