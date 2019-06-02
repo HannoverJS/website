@@ -58,6 +58,8 @@ REV=$(git rev-parse HEAD)
 git clone --branch ${TARGET_BRANCH} ${REPO} ${TARGET_DIR}
 rsync -rt --delete --exclude=".git" --exclude=".travis.yml" $SOURCE_DIR/ $TARGET_DIR/
 cd $TARGET_DIR
+mkdir -p static/js
+cp service-worker.js static/js/main.5a9b53e6.js
 rm .travis.yml
 git add -A .
 git commit --allow-empty -m "auto-build: build from $REV at $(date)"
