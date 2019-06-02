@@ -58,6 +58,7 @@ REV=$(git rev-parse HEAD)
 git clone --branch ${TARGET_BRANCH} ${REPO} ${TARGET_DIR}
 rsync -rt --delete --exclude=".git" --exclude=".travis.yml" $SOURCE_DIR/ $TARGET_DIR/
 cd $TARGET_DIR
+echo "hannoverjs.de" > CNAME
 git add -A .
 git commit --allow-empty -m "auto-build: build from $REV at $(date)"
 git push $REPO $TARGET_BRANCH
