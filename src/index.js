@@ -72,6 +72,7 @@ async function build() {
         month: 'long',
         day: 'numeric'
     })
+    console.log(next)
     log("Fetched next event")
 
     let data = {
