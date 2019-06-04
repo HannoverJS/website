@@ -25,7 +25,6 @@ function extractTalk(body) {
 }
 
 function talks() {
-    return []
     return fetch(GITHUB_ISSUES, {
       headers: {
           Authorization: `token ${process.env.GH_TOKEN}`

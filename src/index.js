@@ -68,11 +68,10 @@ async function build() {
 
     log("Fetching next event...")
     let next = (await fetchEvents())[0]
-    next.date = new Date(next.date).toLocaleDateString('en-GB', {
+    next.date = new Intl.DateTimeFormat("en-GB", {
         month: 'long',
         day: 'numeric'
-    })
-    console.log(next)
+    }).format(new Date(next.date))
     log("Fetched next event")
 
     let data = {
