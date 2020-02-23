@@ -1,0 +1,31 @@
+name: build
+
+on:
+  push:
+    branches: master
+  issues:
+    types: [milestoned]
+
+jobs:
+  build:
+    env:
+      GIT_NAME: "GitHub actions"
+      GIT_EMAIL: "robinthrift@users.noreply.github.com"
+      SOURCE_DIR: "build"
+      DEPLOY_BRANCH: "master"
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: Install
+      run: npm install
+    - name: Build
+      run: npm run build
+    - name: CNAME
+      run: echo "hannoverjs.com" > ./src/CNAME
+    - name: Deploy
+      run: ./deploy.sh
+
