@@ -1,5 +1,14 @@
+@use './variables';
+
 .header {
+    .logo {
+        width: 120px;
+        border-radius: 0 0 variables.$border-radius variables.$border-radius;
+    }
+
     .hero {
-        background: $color-primary;
+        padding: 48px;
+        background: variables.$color-primary;
+        border-radius: variables.$border-radius;
     }
 }
