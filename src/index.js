@@ -3,14 +3,15 @@ const fs = require("fs").promises
 const { promisify } = require("util")
 const glob = promisify(require("glob"))
 const path = require("path")
+const { renderSync } = require("sass")
 
 const fetchTalks = require("./talks")
 const organizers = require("./organizers")
 const fetchEvents = require("./events")
 
 const OUTPUT_FILE = "./build/index.html"
-const OUTPUT_DIR  = "./build"
-const SRC_DIR  = "./src"
+const OUTPUT_DIR = "./build"
+const SRC_DIR = "./src"
 const CSS_INPUT = "./src/styles.css"
 const CSS_OUTPUT = "./build/styles.css"
 
@@ -22,21 +23,28 @@ function log(msg, ...args) {
     }
 }
 
-async function copyFiles(pattern, destination, map = (c) => c) {
+async function copyFiles(pattern, destination, map = c => c) {
     let files = await glob(pattern)
-    await Promise.all(files.map(async (f) => {
-        let content = await fs.readFile(f, "utf8")
-        let basename = path.basename(f)
-        await fs.mkdir(destination, { recursive: true })
-        await fs.writeFile(path.join(destination, basename), map(content))
-    }))
+    await Promise.all(
+        files.map(async f => {
+            let content = await fs.readFile(f, "utf8")
+            let basename = path.basename(f)
+            await fs.mkdir(destination, { recursive: true })
+            await fs.writeFile(path.join(destination, basename), map(content))
+        }),
+    )
 }
 
-function copyCSS() {
+async function copyCSS() {
     log("Copying CSS...")
     const CleanCSS = require("clean-css")
     let cleanCSS = new CleanCSS()
-    return copyFiles(`${SRC_DIR}/*.css`, OUTPUT_DIR, (c) => cleanCSS.minify(c).styles)
+
+    const scssOuput = renderSync({
+        file: `${SRC_DIR}/index.scss`,
+    }).css.toString()
+    const cleanedCss = cleanCSS.minify(scssOuput).styles
+    await fs.writeFile(path.join(OUTPUT_DIR, "index.css"), cleanedCss)
 }
 
 async function copyAssets() {
@@ -51,15 +59,19 @@ async function build() {
 
     log("Loading template partials...")
     let partials = await glob("./src/partials/*.html")
-    await Promise.all(partials.map(async (p) => {
-        log("Loading partial '%s'...", p)
-        let content = await fs.readFile(p, "utf8")
-        handlebars.registerPartial(path.basename(p, ".html"), content)
-        log("Loaded partial '%s'", p)
-    }))
+    await Promise.all(
+        partials.map(async p => {
+            log("Loading partial '%s'...", p)
+            let content = await fs.readFile(p, "utf8")
+            handlebars.registerPartial(path.basename(p, ".html"), content)
+            log("Loaded partial '%s'", p)
+        }),
+    )
 
     log("Compiling layout template...")
-    let layout = handlebars.compile(await fs.readFile(`${SRC_DIR}/partials/layout.html`, "utf8"))
+    let layout = handlebars.compile(
+        await fs.readFile(`${SRC_DIR}/partials/layout.html`, "utf8"),
+    )
     log("Compiled layout template")
 
     log("Fetching talks...")
@@ -69,15 +81,15 @@ async function build() {
     log("Fetching next event...")
     let next = (await fetchEvents())[0]
     next.date = new Intl.DateTimeFormat("en-GB", {
-        month: 'long',
-        day: 'numeric'
+        month: "long",
+        day: "numeric",
     }).format(new Date(next.date))
     log("Fetched next event")
 
     let data = {
         next,
-        talks: (talks.length == 0) ? [{ title: undefined }] : talks,
-        organizers
+        talks: talks.length == 0 ? [{ title: undefined }] : talks,
+        organizers,
     }
 
     log("Rendering output...")
@@ -92,7 +104,7 @@ async function build() {
         removeRedundantAttributes: true,
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true
+        useShortDoctype: true,
     })
     log("Minifyed html output")
 
@@ -110,25 +122,27 @@ async function watch() {
         build()
     })
 
-    const bs = require("browser-sync").create();
+    const bs = require("browser-sync").create()
 
-    bs.watch(`${OUTPUT_DIR}/**`).on("change", bs.reload);
+    bs.watch(`${OUTPUT_DIR}/**`).on("change", bs.reload)
     bs.init({
-        server: OUTPUT_DIR
-    });
+        server: OUTPUT_DIR,
+    })
 }
-
 
 function clean() {
     return new Promise((resolve, reject) => {
-        require("child_process").exec(`rm -rf ${OUTPUT_DIR}/*`, (err, _, stderr) => {
-            if (err) {
-                return reject(err)
-            }
-            if (stderr) {
-                return reject(stderr)
-            }
-        })
+        require("child_process").exec(
+            `rm -rf ${OUTPUT_DIR}/*`,
+            (err, _, stderr) => {
+                if (err) {
+                    return reject(err)
+                }
+                if (stderr) {
+                    return reject(stderr)
+                }
+            },
+        )
     })
 }
 
@@ -136,13 +150,13 @@ async function main() {
     switch (process.argv[2]) {
         case "build":
             return build()
-            break;
+            break
         case "watch":
             return watch()
-            break;
+            break
         case "clean":
             return clean()
-            break;
+            break
     }
 }
 
