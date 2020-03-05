@@ -1,14 +1,18 @@
 <div class="agenda">
-    <ul>
-        <li>
-            <h1>Welcome & Pizza <time>18:30</time></h1>
-            <div>
+    <ul class="agenda__timeline">
+        <li class="agenda__timeline-item">
+            <h3 class="agenda__timeline-item-title">
+                Welcome & Pizza <time>18:30h</time>
+            </h3>
+            <div class="agenda__timeline-item-content">
                 Free Pizza, Drinks and a warm welcome from the organizers.
             </div>
         </li>
-        <li>
-            <h1>Talk <time>19:00h</time></h1>
-            <div>
+        <li class="agenda__timeline-item">
+            <h3 class="agenda__timeline-item-title">
+                Talk <time>19:00h</time>
+            </h3>
+            <div class="agenda__timeline-item-content">
                 {{#talks}} {{#title}}
                 <div class="talk">
                     <h3>{{ . }}</h3>
@@ -54,9 +58,11 @@
                 {{/title}} {{/talks}}
             </div>
         </li>
-        <li>
-            <h1>Socializing <time>19:45</time></h1>
-            <div>
+        <li class="agenda__timeline-item">
+            <h3 class="agenda__timeline-item-title">
+                Socializing <time>19:45h</time>
+            </h3>
+            <div class="agenda__timeline-item-content">
                 bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
                 bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
                 bla bla bla bla bla

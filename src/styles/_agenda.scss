@@ -1,0 +1,60 @@
+@use './variables';
+
+.agenda {
+    margin: 100px 0px;
+
+    &__timeline {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        position: relative;
+
+        &::before {
+            content: "";
+            display: block;
+            width: 10px;
+            height: 100%;
+            background: variables.$color-primary;
+            position: absolute;
+            right: 50%;
+            transform: translateX(5px);
+        }
+    }
+
+    &__timeline-item {
+        width: calc(50% - 50px);
+
+        &:nth-child(even) {
+            transform: translatex(calc(100% + 100px));
+
+            .agenda__timeline-item-title {
+                &::after {
+                    left: -75px;
+                }
+            }
+        }
+    }
+
+    &__timeline-item-title {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 50px;
+            background: variables.$color-primary;
+            position: absolute;
+            right: -75px;
+            border-radius: 50%;
+        }
+    }
+
+    &__timeline-item-content {
+        padding: 16px 32px;
+        background: variables.$color-primary;
+        border-radius: variables.$border-radius;
+    }
+}
