@@ -14,16 +14,35 @@
     </div>
 
     <div class="hero">
-        <div class="next-meetup">
+        <div>
             {{#next}}
             <h2>Next Meetup on <b>{{date}}</b></h2>
-            <a class="button large" target="_blank" href="{{meetupUrl}}"
+            <!-- <a class="button large" target="_blank" href="{{meetupUrl}}"
                 >RSVP &amp; Join us on Meetup</a
-            >
+            > -->
             {{/next}}
         </div>
-        <a href="#">Join us on Slack</a>
-        <a href="#">RSVP on Meetup</a>
-        <!-- <img src="./images/hero.svg" /> -->
+        <div class="social-buttons">
+            <a href="#">
+                <div class="button">
+                    <div class="button-text">Join us on Slack</div>
+                    <div class="button-icon">
+                        <svg width="100%" height="100%" aria-label="Slack">
+                            <use xlink:href="./images/social.svg#slack" />
+                        </svg>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="button">
+                    <div class="button-text">RSVP on Meetup</div>
+                    <div class="button-icon">
+                        <svg width="100%" height="100%" aria-label="Meetup">
+                            <use xlink:href="./images/social.svg#meetup" />
+                        </svg>
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
 </div>

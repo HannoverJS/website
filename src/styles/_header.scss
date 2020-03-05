@@ -7,8 +7,16 @@
     }
 
     .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 400px;
         padding: 48px;
         background: variables.$color-primary;
         border-radius: variables.$border-radius;
+
+        .social-buttons {
+            display: flex;
+        }
     }
 }
