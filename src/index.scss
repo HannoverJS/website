@@ -1,6 +1,5 @@
-$lol: red;
+$color-primary: #fedf19;
 
-h1 {
-    color: $lol;
-    background: blue;
-}
+@use 'styles/elements';
+@use 'styles/header';
+@use 'styles/about';
