@@ -2,22 +2,55 @@
 
 .header {
     .logo {
+        display: block;
+        margin-bottom: 16px;
         width: 120px;
         border-radius: 0 0 variables.$border-radius variables.$border-radius;
     }
 
     .hero {
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         height: 400px;
-        padding: 48px;
         background: variables.$color-primary;
         border-radius: variables.$border-radius;
 
-        .social-buttons {
+        &__cta {
+            flex: 1;
+            padding: 48px;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+        }
+
+        &__next-meetup {
+            font-size: 32px;
+
+            b {
+                display: block;
+                font-size: 48px;
+            }
+        }
+
+        &__social-buttons {
+            display: flex;
+            flex-direction: column;
+            width: 260px;
+
+            a:first-child {
+                margin-bottom: 16px;
+            }
+        }
+
+        &__image-container {
+            flex: 2;
+            position: relative;
+            height: 480px;
+            margin-top: -80px;
+            overflow: hidden;
+        }
+
+        &__image {
+            position: absolute;
         }
     }
 }
