@@ -1,72 +1,68 @@
-<div class="agenda">
-    <ul class="agenda__timeline">
-        <li class="agenda__timeline-item">
-            <h3 class="agenda__timeline-item-title">
-                Welcome & Pizza <time>18:30h</time>
-            </h3>
-            <div class="agenda__timeline-item-content">
-                Free Pizza, Drinks and a warm welcome from the organizers.
-            </div>
-        </li>
-        <li class="agenda__timeline-item">
-            <h3 class="agenda__timeline-item-title">
-                Talk <time>19:00h</time>
-            </h3>
-            <div class="agenda__timeline-item-content">
-                {{#talks}} {{#title}}
-                <div class="talk">
-                    <h3>{{ . }}</h3>
-                    <div class="talk-description">
-                        {{{../description}}}
-                    </div>
-                    {{#../speaker}}
-                    <div class="speaker">
-                        <div class="github-avatar">
-                            <img src="{{avatarUrl}}" alt="{{name}}" />
-                        </div>
-                        <div class="spaker-details">
-                            <h4 class="speaker-name">{{name}}</h4>
-                            {{occupation}} {{#socialName}}
-                            <a target="_blank" href="{{../socialUrl}}">{{.}}</a>
-                            {{/socialName}}
-                        </div>
-                    </div>
-                    {{/../speaker}}
+<ul class="timeline">
+    <li class="timeline__item">
+        <h3 class="timeline__item-title">
+            Welcome & Pizza <time>18:30h</time>
+        </h3>
+        <div class="timeline__item-content">
+            Free Pizza, Drinks and a warm welcome from the organizers.
+        </div>
+    </li>
+    <li class="timeline__item">
+        <h3 class="timeline__item-title">Talk <time>19:00h</time></h3>
+        <div class="timeline__item-content">
+            {{#talks}} {{#title}}
+            <div class="timeline__talk">
+                <h3 class="timeline__talk-title">{{ . }}</h3>
+                <div class="timeline__talk-description">
+                    {{{../description}}}
                 </div>
-                {{/title}} {{^title}}
-                <div class="talk free">
-                    <h3>Free Slot</h3>
-                    <p>This slot could be yours!</p>
-                    <div>
-                        <a
-                            class="button inverted"
-                            target="_blank"
-                            href="https://github.com/HannoverJS/talks#submitting-a-talk"
-                            >Submit a Talk</a
-                        >
-                    </div>
-                    <p>Need an idea for a talk?<br />We've got you covered!</p>
-                    <div>
-                        <a
-                            class="button inverted"
-                            target="_blank"
-                            href="https://github.com/HannoverJS/talks/issues?q=is%3Aissue+is%3Aopen+label%3A%22Talk+Idea%22"
-                            >View Talk Ideas</a
-                        >
+                {{#../speaker}}
+                <div class="timeline__speaker">
+                    <img
+                        src="{{avatarUrl}}"
+                        alt="{{name}}"
+                        class="timeline__speaker-avatar"
+                    />
+                    <div class="timeline__speaker-details">
+                        <h4 class="timeline__speaker-name">{{name}}</h4>
+                        {{occupation}} {{#socialName}}
+                        <a target="_blank" href="{{../socialUrl}}">{{.}}</a>
+                        {{/socialName}}
                     </div>
                 </div>
-                {{/title}} {{/talks}}
+                {{/../speaker}}
             </div>
-        </li>
-        <li class="agenda__timeline-item">
-            <h3 class="agenda__timeline-item-title">
-                Socializing <time>19:45h</time>
-            </h3>
-            <div class="agenda__timeline-item-content">
-                bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-                bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-                bla bla bla bla bla
+            {{/title}} {{^title}}
+            <div class="timeline__talk timeline__talk--free-slot">
+                <h3>Free Slot</h3>
+                <p>This slot could be yours!</p>
+                <div>
+                    <a
+                        class="button inverted"
+                        target="_blank"
+                        href="https://github.com/HannoverJS/talks#submitting-a-talk"
+                        >Submit a Talk</a
+                    >
+                </div>
+                <p>Need an idea for a talk?<br />We've got you covered!</p>
+                <div>
+                    <a
+                        class="button inverted"
+                        target="_blank"
+                        href="https://github.com/HannoverJS/talks/issues?q=is%3Aissue+is%3Aopen+label%3A%22Talk+Idea%22"
+                        >View Talk Ideas</a
+                    >
+                </div>
             </div>
-        </li>
-    </ul>
-</div>
+            {{/title}} {{/talks}}
+        </div>
+    </li>
+    <li class="timeline__item">
+        <h3 class="timeline__item-title">Socializing <time>19:45h</time></h3>
+        <div class="timeline__item-content">
+            bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+            bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+            bla bla bla
+        </div>
+    </li>
+</ul>

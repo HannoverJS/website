@@ -1,18 +1,20 @@
-const { camelizeKeys } = require('humps')
-const fetch = require('./fetch')
+const { camelizeKeys } = require("humps")
+const fetch = require("./fetch")
 
 const GITHUB_ISSUES =
-    'https://api.github.com/repos/HannoverJS/talks/issues?state=open&labels=Upcoming%20Talk'
+    "https://api.github.com/repos/HannoverJS/talks/issues?state=open&labels=Upcoming%20Talk"
 
 const talkRegExp = /^#{5} (.+)(?:\s+#{6} (.+))?(?:\s+#{6} \[(.+)]\((.+)\))?\s+([\s\S]+)\s*$/
 
 function extractTalk(body) {
+    // console.log("extractTalk")
+    // console.log(body)
     let [
         name = null,
         occupation = null,
         socialName = null,
         socialUrl = null,
-        description = null
+        description = null,
     ] = body.match(talkRegExp).slice(1, 6)
 
     return {
@@ -20,21 +22,22 @@ function extractTalk(body) {
         occupation,
         socialName,
         socialUrl,
-        description
+        description,
     }
 }
 
 function talks() {
+    console.log("eokfoek")
     return fetch(GITHUB_ISSUES, {
-      headers: {
-          Authorization: `token ${process.env.GH_TOKEN}`
-      }
+        headers: {
+            Authorization: `token ${process.env.GH_TOKEN}`,
+        },
     }).then(issues => {
         return camelizeKeys(issues)
             .filter(
                 ({ milestone }) =>
-                Boolean(milestone) &&
-                new Date(milestone.dueOn).valueOf() > new Date().valueOf()
+                    Boolean(milestone) &&
+                    new Date(milestone.dueOn).valueOf() > new Date().valueOf(),
             )
             .map(
                 ({
@@ -43,7 +46,7 @@ function talks() {
                     user: { avatarUrl },
                     milestone: { dueOn },
                     updatedAt,
-                    labels
+                    labels,
                 }) => {
                     let date = new Date(dueOn)
                     date.setDate(date.getDate() - 1)
@@ -54,12 +57,12 @@ function talks() {
                         occupation,
                         socialName,
                         socialUrl,
-                        description
+                        description,
                     } = extractTalk(body)
-
-                    let lightningTalkLabelName = 'Lightning Talk'
+                    console.log(description)
+                    let lightningTalkLabelName = "Lightning Talk"
                     let isLightningTalk = labels.some(
-                        label => label.name === lightningTalkLabelName
+                        label => label.name === lightningTalkLabelName,
                     )
 
                     return {
@@ -68,16 +71,18 @@ function talks() {
                         date,
                         updatedAt,
                         isLightningTalk,
-                        labels: labels.filter(obj => obj.name !== lightningTalkLabelName),
+                        labels: labels.filter(
+                            obj => obj.name !== lightningTalkLabelName,
+                        ),
                         speaker: {
                             name,
                             avatarUrl,
                             occupation,
                             socialName,
-                            socialUrl
-                        }
+                            socialUrl,
+                        },
                     }
-                }
+                },
             )
     })
 }

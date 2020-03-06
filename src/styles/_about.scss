@@ -1,3 +1,32 @@
 .about {
-    background: blue;
+    display: flex;
+
+    &__hannoverjs {
+        flex: 1;
+    }
+
+    &__organizers {
+        flex: 1;
+    }
+
+    &__organizers-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__organizers-list-item {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__organizer-info {
+    }
+
+    &__organizer-avatar {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
 }

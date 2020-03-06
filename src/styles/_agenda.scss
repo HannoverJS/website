@@ -1,33 +1,33 @@
 @use './variables';
 
-.agenda {
+.timeline {
+    list-style: none;
+    position: relative;
+    list-style: none;
     margin: 100px 0px;
+    padding: 0px;
+    position: relative;
 
-    &__timeline {
-        list-style: none;
-        margin: 0px;
-        padding: 0px;
-        position: relative;
-
-        &::before {
-            content: "";
-            display: block;
-            width: 10px;
-            height: 100%;
-            background: variables.$color-primary;
-            position: absolute;
-            right: 50%;
-            transform: translateX(5px);
-        }
+    &::before {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 100%;
+        background: variables.$color-primary;
+        position: absolute;
+        right: 50%;
+        transform: translateX(5px);
     }
 
-    &__timeline-item {
+    &__item {
         width: calc(50% - 50px);
 
         &:nth-child(even) {
             transform: translatex(calc(100% + 100px));
 
-            .agenda__timeline-item-title {
+            .timeline__item-title {
+                flex-direction: row-reverse;
+
                 &::after {
                     left: -75px;
                 }
@@ -35,10 +35,12 @@
         }
     }
 
-    &__timeline-item-title {
+    &__item-title {
         display: flex;
         justify-content: space-between;
         position: relative;
+        height: 50px;
+        align-items: center;
 
         &::after {
             content: "";
@@ -53,9 +55,24 @@
         }
     }
 
-    &__timeline-item-content {
+    &__item-content {
         padding: 16px 32px;
         background: variables.$color-primary;
         border-radius: variables.$border-radius;
+    }
+
+    &__talk-title {
+        margin-bottom: 16px;
+    }
+
+    &__speaker {
+        display: flex;
+        margin-top: 16px;
+    }
+
+    &__speaker-avatar {
+        width: 80px;
+        border-radius: 50%;
+        margin-right: 16px;
     }
 }

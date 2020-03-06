@@ -1,7 +1,37 @@
 <div class="about">
-    <h2><u>What's this all about?</u></h2>
-    <p>HannoverJS is a usergroup focused on JavaScript and related topics.
-    The idea has gained great interest around Lower-Saxony's JavaScript folks.<br />
-    We meet regularly on the <b>4th Tuesday</b> of every month at <time>18:30</time>
-    at NewStore, Bödekerstraße 56 in Hannover.</p>
+    <div class="about__hannoverjs">
+        <h2>What's this all about?</h2>
+        <p>
+            HannoverJS is a usergroup focused on JavaScript and related topics.
+            The idea has gained great interest around Lower-Saxony's JavaScript
+            folks.<br />
+            We meet regularly on the <b>4th Tuesday</b> of every month at
+            <time>18:30</time> at NewStore, Bödekerstraße 56 in Hannover.
+        </p>
+    </div>
+    <div class="about__organizers">
+        <h2>Who's behind this?</h2>
+        <ul class="about__organizers-list">
+            {{#organizers}}
+            <li class="about__organizers-list-item">
+                <div class="about__organizer-info">
+                    <h5>{{name}}</h5>
+                    {{#twitter}}
+                    <a
+                        target="_blank"
+                        rel="noopener"
+                        href="https://twitter.com/{{ . }}"
+                        >@{{ . }}</a
+                    >
+                    {{/twitter}}
+                </div>
+                <img
+                    src="{{avatar}}"
+                    alt="{{name}}"
+                    class="about__organizer-avatar"
+                />
+            </li>
+            {{/organizers}}
+        </ul>
+    </div>
 </div>
