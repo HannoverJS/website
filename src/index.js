@@ -53,7 +53,9 @@ async function copyAssets() {
     return copyFiles(`${SRC_DIR}/assets/*`, OUTPUT_DIR)
 }
 
-async function build() {
+async function build(dev = false) {
+    dev && log("Builing without actual API calls ...")
+
     log("Creating output directory '%s'", OUTPUT_DIR)
     await fs.mkdir(OUTPUT_DIR, { recursive: true })
 
@@ -75,11 +77,11 @@ async function build() {
     log("Compiled layout template")
 
     log("Fetching talks...")
-    let talks = await fetchTalks()
+    let talks = await fetchTalks(dev)
     log("Fetched talks")
 
     log("Fetching next event...")
-    let next = (await fetchEvents())[0]
+    let next = (await fetchEvents(dev))[0]
     next.date = new Intl.DateTimeFormat("en-GB", {
         month: "long",
         day: "numeric",
@@ -116,10 +118,10 @@ async function build() {
 }
 
 async function watch() {
-    await build()
+    await build(true)
 
     require("fs").watch(SRC_DIR, { recursive: true }, () => {
-        build()
+        build(true)
     })
 
     const bs = require("browser-sync").create()

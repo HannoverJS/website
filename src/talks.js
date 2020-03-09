@@ -26,8 +26,20 @@ function extractTalk(body) {
     }
 }
 
-function talks() {
-    console.log("eokfoek")
+function talks(dev = false) {
+    if (dev)
+        return {
+            title: "Test talk!",
+            description: "Some description",
+            speaker: {
+                name: "Tobi",
+                avatarUrl: "icon.png",
+                occupation: "Dev at HannoverJS",
+                socialName: "hannoverjs",
+                socialUrl: "https://twitter.com/hannoverjs",
+            },
+        }
+
     return fetch(GITHUB_ISSUES, {
         headers: {
             Authorization: `token ${process.env.GH_TOKEN}`,
