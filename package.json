@@ -6,7 +6,7 @@
     "clean-css": "^4.2.1",
     "glob": "^7.1.4",
     "got": "^9.6.0",
-    "handlebars": "^4.1.2",
+    "handlebars": "^4.7.7",
     "html-minifier": "^4.0.0",
     "humps": "^2.0.1"
   },
